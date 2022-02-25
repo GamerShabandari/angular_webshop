@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { IOrder } from '../models/Iorder';
 import { IProduct } from '../models/IProduct';
 
 @Injectable({
@@ -11,8 +12,12 @@ export class GetproductsService {
   private products = new Subject<IProduct[]>();
   public products$ = this.products.asObservable();
 
-  private checkoutItems = new Subject<IProduct[]>();
-  public checkOutItems = this.checkoutItems.asObservable();
+  private ordersArray: IOrder[] = []
+  private orders = new Subject<IOrder[]>();
+  public orders$ = this.orders.asObservable();
+
+  ////// ändra nedan till observable istället !? ////// Kolla mer info i checkout.ts filen
+  public checkoutItems: IProduct[] = []
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +27,16 @@ export class GetproductsService {
     })
   }
   addItemToCheckout(item:IProduct){
+    this.checkoutItems.push(item);
+  }
 
+  getCheckoutItems():IProduct[]{
+    return this.checkoutItems
+  }
+
+  makePurchase(order:IOrder){
+    console.log(order);
+    this.ordersArray.push(order);
+    this.orders.next(this.ordersArray)
   }
 }
