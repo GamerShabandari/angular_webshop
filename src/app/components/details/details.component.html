@@ -1,11 +1,17 @@
 <p>details works!</p>
 
-{{testProductIDString}}
 
 {{productId}}
 
-<br>
-<!-- 
-borde vara en lista här {{products | json}} -->
+<div>
+    <ng-container *ngFor="let p of products">
 
-{{productToShow | json}}
+        <div (click)="attItemToCheckout(p)" >{{p.id}}</div>
+       
+        <div *ngIf="p.id === productId">{{p.name}}</div>
+
+    </ng-container>
+</div>
+
+
+

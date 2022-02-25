@@ -8,9 +8,11 @@ import { IProduct } from '../models/IProduct';
 })
 export class GetproductsService {
 
-  //private products: IProduct[] = []
   private products = new Subject<IProduct[]>();
   public products$ = this.products.asObservable();
+
+  private checkoutItems = new Subject<IProduct[]>();
+  public checkOutItems = this.checkoutItems.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -19,13 +21,7 @@ export class GetproductsService {
       this.products.next(data);
     })
   }
+  addItemToCheckout(item:IProduct){
 
-  // showProductDetail(productId:string): IProduct{
-  //   //hämta rätt product från array
-  //   // for (let i = 0; i < this.products.length; i++) {
-  //   //   const element = this.products[i];
-      
-  //   }
-
-  // }
+  }
 }
