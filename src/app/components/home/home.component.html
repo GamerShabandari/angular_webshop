@@ -1,13 +1,38 @@
-<div class="categoryContainer">
-    <ul>
-        <li *ngFor="let c of categories"><div (click)="filterByCategory(c.id)">{{c.name}}</div></li>
-        <li (click)="getProducts()">visa alla</li>
+<div>
+    <ul class="categoryContainer">
+        <li *ngFor="let category of categories">
+            <div (click)="chosenCategory = category.id">{{category.name}}</div>
+        </li>
+        <li (click)="chosenCategory = 0">Alla produkter</li>
     </ul>
 
 </div>
 
 <section class="productsSection">
 
-    <div *ngFor="let product of products"><a routerLink="/details/{{product.id}}" routerLinkActive="activeProduct">{{product.id}} {{product.name}}</a></div>
+    <ng-container *ngIf="chosenCategory === 0">
+        <div class="product" *ngFor="let product of products">
+            <a routerLink="/details/{{product.id}}">
+                <img src="{{product.imageUrl}}" alt="poster of {{product.name}}" width="100px"> <h5>{{product.name | uppercase | slice:0:30}}</h5>
+            </a>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="chosenCategory > 0">
+
+        <ng-container *ngFor="let product of products">
+            <ng-container *ngFor="let categories of product.productCategory">
+                <div class="product" *ngIf="categories.categoryId === chosenCategory">
+                    <a routerLink="/details/{{product.id}}">
+                        <img src="{{product.imageUrl}}" alt="poster of {{product.name}}" width="100px"> <h5>{{product.name | uppercase | slice:0:30}}</h5>
+                    </a>
+                </div>
+            </ng-container>
+
+
+        </ng-container>
+
+    </ng-container>
+
 
 </section>

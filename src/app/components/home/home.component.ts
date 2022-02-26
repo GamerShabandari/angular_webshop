@@ -10,6 +10,8 @@ import { GetproductsService } from 'src/app/services/getproducts.service';
 })
 export class HomeComponent implements OnInit {
 
+  chosenCategory:number = 0
+
   products: IProduct[] = []
 
   categories: ICategory[] = []
@@ -28,32 +30,4 @@ export class HomeComponent implements OnInit {
     this.service.getCategoriesFromApi();
     this.service.getProducts();
   }
-
-  getProducts(){
-    this.service.getProducts();
-  }
-
-  filterByCategory(categoryId:number){
-    console.log(categoryId);
-
-    for (let i = 0; i < this.products.length; i++) {
-      const product = this.products[i];
-      let thisIndex = i;
-
-      for (let i = 0; i < product.productCategory.length; i++) {
-        const category = product.productCategory[i];
-
-        if (category.id !== categoryId) {
-
-          this.products.splice(thisIndex,1)
-
-          
-        }
-        
-      }
-      
-    }
-    
-  }
-
 }

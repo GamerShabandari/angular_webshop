@@ -1,15 +1,20 @@
 <p>details works!</p>
 
-<div>
+<div class="productContainer">
     <ng-container *ngFor="let p of products">
 
         <!-- <div (click)="attItemToCheckout(p)" >{{p.id}} {{p.name}}</div> -->
-       
-        <div *ngIf="p.id === productId" >{{p.name}} {{p.price}} {{p.description}}<button (click)="attItemToCheckout(p)">köp</button></div>
-        
+
+        <div *ngIf="p.id === productId" class="detailedProduct">
+
+            <h2>Titel: {{p.name}} </h2>
+            <img src="{{p.imageUrl}}" alt="poster of {{p.name}}">
+            <h3>Pris: {{p.price}}kr</h3>
+            <h4>Beskrivning: {{p.description}}</h4>
+            <h5>År: {{p.year}}</h5>
+            <button (click)="attItemToCheckout(p)">köp</button>
+        </div>
+
 
     </ng-container>
 </div>
-
-
-

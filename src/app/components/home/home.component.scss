@@ -1,3 +1,35 @@
-.activeProduct{
-    border: 2px solid red;
+.categoryContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+
+    li{
+        margin: 30px;
+        list-style: none;
+    }
+}
+
+.productsSection{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 130px;
+    height: 250px;
+    text-align: center;
+    background-color: gray;
+    gap: 10px;
+    overflow: hidden;
 }
