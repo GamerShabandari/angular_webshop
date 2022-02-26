@@ -1,1 +1,4 @@
 <p>admin works!</p>
+
+{{orders | json}}
+<div *ngFor="let order of orders">{{order.id}}{{order.orderRows}}{{order.totalPrice}}</div>

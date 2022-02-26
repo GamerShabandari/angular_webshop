@@ -3,4 +3,28 @@
 
 <div *ngFor="let item of checkoutItems; let i = index">{{item.name}} <button (click)="deleteItem(i)">delete item</button> </div>
 
-<button [disabled]="checkoutItems.length < 1" (click)="makePurchase()" >Genomför köp</button>
+<div>
+    <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+        <fieldset>
+            <legend>Fyll i dina uppgifter för att genomföra köp</legend>
+            <input type="text" placeholder="förnamn" formControlName="firstname">
+            <input type="text" placeholder="efternamn" formControlName="lastname">
+            <input type="text" placeholder="adress" formControlName="street">
+            <input type="text" placeholder="postnummer" formControlName="zip">
+            <input type="text" placeholder="stad" formControlName="city">
+            <input type="text" placeholder="land" formControlName="country">
+            <input type="text" placeholder="telefon" formControlName="phoneNr">
+            <input type="text" placeholder="epost" formControlName="email">
+
+            <br>
+
+            <button type="submit" [disabled]="checkoutItems.length < 1">Spara och gå vidare med köp</button>
+
+            
+        </fieldset>
+    </form>
+</div>
+
+{{userForm.value | json}}
+
+<!-- <button [disabled]="checkoutItems.length < 1" (click)="makePurchase()" >Genomför köp</button> -->

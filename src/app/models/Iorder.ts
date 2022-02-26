@@ -1,21 +1,22 @@
 import { IProduct } from "./IProduct";
+import { IUser } from "./IUser";
 
 export class IOrder {
     id: number;
     companyId: number;
     created: Date;
-    createdBy: string;
+    createdBy: IUser;
     paymentMethod: string;
     totalPrice: number;
     status: boolean;
     orderRows: IProduct[]
 
-    constructor(totalPrice:number , orderRows:IProduct[]){
-        //this.id = id;
+    constructor(user:IUser, totalPrice:number , orderRows:IProduct[]){
+        
         this.id = Math.floor(Math.random() * 10000);
         this.companyId = 42;
         this.created = new Date();
-        this.createdBy = "Paolo Maldini";
+        this.createdBy = user;
         this.paymentMethod = "Paypal"
         this.totalPrice = totalPrice;
         this.status = true;

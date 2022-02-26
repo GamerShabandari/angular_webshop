@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { IOrder } from 'src/app/models/Iorder';
 import { IProduct } from 'src/app/models/IProduct';
+import { IUser } from 'src/app/models/IUser';
 import { GetproductsService } from 'src/app/services/getproducts.service';
 
 @Component({
@@ -10,6 +12,18 @@ import { GetproductsService } from 'src/app/services/getproducts.service';
 })
 export class CheckoutComponent implements OnInit {
 
+  userForm = new FormGroup({
+    firstname: new FormControl(""),
+    lastname: new FormControl(""),
+    street: new FormControl(""),
+    zip: new FormControl(""),
+    city: new FormControl(""),
+    country: new FormControl(""),
+    phoneNr: new FormControl(""),
+    email: new FormControl("")
+    
+  })
+
   checkoutItems: IProduct[] = []
 
   constructor(private service: GetproductsService) { }
@@ -18,7 +32,15 @@ export class CheckoutComponent implements OnInit {
     this.checkoutItems = this.service.getCheckoutItems()
   }
 
-  makePurchase() {
+  saveUser(){
+
+    console.log(this.userForm.value);
+    let createdUser = new IUser(this.userForm.value.firstname,this.userForm.value.lastname,this.userForm.value.street,this.userForm.value.zip,this.userForm.value.city,this.userForm.value.country,this.userForm.value.phoneNr,this.userForm.value.email,)
+    this.makePurchase(createdUser)
+    
+  }
+
+  makePurchase(user:IUser) {
     if (this.checkoutItems.length >= 1) {
       console.log("fanns något");
 
@@ -32,7 +54,7 @@ export class CheckoutComponent implements OnInit {
 
       }
 
-      let newOrder = new IOrder(totalPrice, this.checkoutItems)
+      let newOrder = new IOrder(user, totalPrice, this.checkoutItems)
 
       this.service.makePurchase(newOrder)
       ////////////////////////////////////////////////////////////////////////////////////////////////////////

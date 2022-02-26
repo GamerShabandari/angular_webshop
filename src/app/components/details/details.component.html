@@ -1,14 +1,12 @@
 <p>details works!</p>
 
-
-{{productId}}
-
 <div>
     <ng-container *ngFor="let p of products">
 
-        <div (click)="attItemToCheckout(p)" >{{p.id}} {{p.name}}</div>
+        <!-- <div (click)="attItemToCheckout(p)" >{{p.id}} {{p.name}}</div> -->
        
-        <div *ngIf="p.id === productId">{{p.name}}</div>
+        <div *ngIf="p.id === productId" >{{p.name}} {{p.price}} {{p.description}}<button (click)="attItemToCheckout(p)">köp</button></div>
+        
 
     </ng-container>
 </div>
