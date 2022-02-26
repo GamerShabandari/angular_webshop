@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IOrder } from 'src/app/models/Iorder';
 import { IProduct } from 'src/app/models/IProduct';
 import { IUser } from 'src/app/models/IUser';
@@ -13,14 +13,14 @@ import { GetproductsService } from 'src/app/services/getproducts.service';
 export class CheckoutComponent implements OnInit {
 
   userForm = new FormGroup({
-    firstname: new FormControl(""),
-    lastname: new FormControl(""),
-    street: new FormControl(""),
-    zip: new FormControl(""),
-    city: new FormControl(""),
-    country: new FormControl(""),
-    phoneNr: new FormControl(""),
-    email: new FormControl("")
+    firstname: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    lastname: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    street: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    zip: new FormControl("", [Validators.required, Validators.minLength(5), Validators.maxLength(5),Validators.pattern("^[0-9]*$")]),
+    city: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    country: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    phoneNr: new FormControl("", [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
+    email: new FormControl("", [Validators.required, Validators.email])
     
   })
 
@@ -34,7 +34,6 @@ export class CheckoutComponent implements OnInit {
 
   saveUser(){
 
-    console.log(this.userForm.value);
     let createdUser = new IUser(this.userForm.value.firstname,this.userForm.value.lastname,this.userForm.value.street,this.userForm.value.zip,this.userForm.value.city,this.userForm.value.country,this.userForm.value.phoneNr,this.userForm.value.email,)
     this.makePurchase(createdUser)
     
@@ -42,7 +41,6 @@ export class CheckoutComponent implements OnInit {
 
   makePurchase(user:IUser) {
     if (this.checkoutItems.length >= 1) {
-      console.log("fanns något");
 
       //skapa korrekt formaterat order, skicka tillbaka till service som sedan skickar till API
       let totalPrice: number = 0;

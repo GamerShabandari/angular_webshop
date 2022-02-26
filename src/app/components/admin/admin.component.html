@@ -1,4 +1,8 @@
 <p>admin works!</p>
 
-{{orders | json}}
-<div *ngFor="let order of orders">{{order.id}}{{order.orderRows}}{{order.totalPrice}}</div>
+<h2>Lagda ordrar:</h2>
+<div class="ordersContainer">
+
+    <div class="order" *ngFor="let order of orders; let i = index">{{order.id}}{{order.orderRows | json}}{{order.totalPrice}} <button (click)="removeOrder(i)">radera order</button> </div>
+
+</div>

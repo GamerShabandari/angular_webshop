@@ -1,3 +1,11 @@
+<div class="categoryContainer">
+    <ul>
+        <li *ngFor="let c of categories"><div (click)="filterByCategory(c.id)">{{c.name}}</div></li>
+        <li (click)="getProducts()">visa alla</li>
+    </ul>
+
+</div>
+
 <section class="productsSection">
 
     <div *ngFor="let product of products"><a routerLink="/details/{{product.id}}" routerLinkActive="activeProduct">{{product.id}} {{product.name}}</a></div>

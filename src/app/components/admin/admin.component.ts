@@ -14,9 +14,13 @@ export class AdminComponent implements OnInit {
   constructor(private service: GetproductsService) { }
 
   ngOnInit(): void {
-    this.service.orders$.subscribe((ordersFromService) => {
-      this.orders = ordersFromService;
-    })
+    this.orders = this.service.showOrdersToAdmin()
+
+  }
+
+  removeOrder(index: number) {
+    this.service.letAdminChangeOrder(index);
+    this.orders.splice(index, 1);
   }
 
 }

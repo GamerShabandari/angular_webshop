@@ -8,18 +8,18 @@ export class IOrder {
     createdBy: IUser;
     paymentMethod: string;
     totalPrice: number;
-    status: boolean;
+    status: number;
     orderRows: IProduct[]
 
     constructor(user:IUser, totalPrice:number , orderRows:IProduct[]){
         
-        this.id = Math.floor(Math.random() * 10000);
+        this.id = Math.floor(Math.random() * 99999);
         this.companyId = 42;
         this.created = new Date();
         this.createdBy = user;
         this.paymentMethod = "Paypal"
         this.totalPrice = totalPrice;
-        this.status = true;
+        this.status = 0;
         this.orderRows = orderRows
     }
 
