@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IOrder } from 'src/app/models/Iorder';
 import { IProduct } from 'src/app/models/IProduct';
 import { IUser } from 'src/app/models/IUser';
+import { OrderRow } from 'src/app/models/OrderRow';
 import { GetproductsService } from 'src/app/services/getproducts.service';
 
 @Component({
@@ -25,6 +26,7 @@ export class CheckoutComponent implements OnInit {
   })
 
   checkoutItems: IProduct[] = []
+  //orderRows: OrderRow [] = []
 
   constructor(private service: GetproductsService) { }
 
@@ -42,6 +44,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   makePurchase(user: IUser) {
+
     if (this.checkoutItems.length >= 1) {
 
       let totalPrice: number = 0;
@@ -50,9 +53,11 @@ export class CheckoutComponent implements OnInit {
         const item = this.checkoutItems[i];
 
         totalPrice += item.price;
+        //this.orderRows.push(new OrderRow(item.id, item.id, item, 1, skriv orderid här))
 
       }
 
+      //let newOrderRows: OrderRow[] = new OrderRow()
       let newOrder = new IOrder(user, totalPrice, this.checkoutItems)
 
       this.service.makePurchase(newOrder)

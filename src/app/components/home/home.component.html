@@ -12,7 +12,12 @@
     <input type="text" placeholder="sök produkt" #searchInput>
     <button (click)="searchProduct(searchInput.value)">sök produkt</button>
 
-    <div *ngFor="let result of searchResult">{{result.name}}
+    <div *ngFor="let result of searchResult">
+
+
+        <a routerLink="/details/{{result.id}}">
+            <img src="{{result.imageUrl}}" alt="poster of {{result.name}}" width="100px"> <h5>{{result.name | uppercase | slice:0:30}}</h5>
+        </a>
 </div>
 
 <section class="productsSection">

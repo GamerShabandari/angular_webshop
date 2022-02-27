@@ -9,8 +9,8 @@
 
         <div> Articklar:
             <div *ngFor="let row of order.orderRows">
-               <h3> Namn:{{row.name}}</h3>
-               <h4> Pris:{{row.price}}</h4>
+               <h3> Namn:{{row.product.name}}</h3>
+               <h4> Pris:{{row.product.price}}</h4>
             </div>
         </div>
 
