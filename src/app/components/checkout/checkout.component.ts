@@ -29,13 +29,15 @@ export class CheckoutComponent implements OnInit {
   constructor(private service: GetproductsService) { }
 
   ngOnInit(): void {
-    this.checkoutItems = this.service.getCheckoutItems()
+    let checkoutItemsSerialized : string = localStorage.getItem("checkoutItems") || "[]";
+    this.checkoutItems = JSON.parse(checkoutItemsSerialized);
   }
 
   saveUser() {
 
     let createdUser = new IUser(this.userForm.value.firstname, this.userForm.value.lastname, this.userForm.value.street, this.userForm.value.zip, this.userForm.value.city, this.userForm.value.country, this.userForm.value.phoneNr, this.userForm.value.email,)
     this.makePurchase(createdUser)
+    this.userForm.reset()
 
   }
 
@@ -54,16 +56,10 @@ export class CheckoutComponent implements OnInit {
       let newOrder = new IOrder(user, totalPrice, this.checkoutItems)
 
       this.service.makePurchase(newOrder)
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////
-      //// ändra dem nedre två raderna till att bli en observable istället för två olika arrays på två platser
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////
-      this.service.checkoutItems = []
-
+      
       this.checkoutItems = []
+      localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems))
 
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////
-      ///////////////////////////////////////////////////////////////////////////////////////////////////////
     } else {
       return
     }
@@ -71,6 +67,7 @@ export class CheckoutComponent implements OnInit {
 
   deleteItem(index: number) {
     this.checkoutItems.splice(index, 1)
+    localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems))
   }
 
 }

@@ -1,14 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { first, Subject } from 'rxjs';
 import { ICategory } from '../models/ICategory';
 import { IOrder } from '../models/Iorder';
 import { IProduct } from '../models/IProduct';
+import { IUser } from '../models/IUser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetproductsService {
+
+  private searchResult = new Subject<IProduct[]>();
+  public searchResult$ = this.searchResult.asObservable();
 
   private products = new Subject<IProduct[]>();
   public products$ = this.products.asObservable();
@@ -17,9 +21,7 @@ export class GetproductsService {
   public categories$ = this.categories.asObservable();
 
   private ordersArray: IOrder[] = []
-  ////// ändra nedan och ovan till observable istället !? ////// Kolla mer info i checkout.ts filen
-  public checkoutItems: IProduct[] = []
-
+  
   constructor(private http: HttpClient) { }
 
   getProducts() {
@@ -38,16 +40,6 @@ export class GetproductsService {
     })
   }
 
-  addItemToCheckout(item: IProduct) {
-
-    this.checkoutItems.push(item);
-  }
-
-  getCheckoutItems(): IProduct[] {
-
-    return this.checkoutItems
-  }
-
   makePurchase(order: IOrder) {
 
     this.ordersArray.push(order);
@@ -61,7 +53,20 @@ export class GetproductsService {
 
   letAdminChangeOrder(index: number) {
 
-    this.ordersArray.splice(index, 1)
+    this.ordersArray.splice(index, 1);
 
+  }
+
+  searchForProduct(usersSearch:string){
+    
+
+    this.http.get<IProduct[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText="+usersSearch).subscribe((data: IProduct[]) => {
+      this.searchResult.next(data);
+      console.log(data);
+  
+      //?searchText=Dark
+
+    })
+    
   }
 }

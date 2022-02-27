@@ -12,6 +12,7 @@ export class DetailsComponent implements OnInit {
 
   productId: number = 0;
   products: IProduct[] = []
+  checkoutItems: IProduct[] = []
 
   constructor(private route: ActivatedRoute, private service: GetproductsService) { }
 
@@ -24,13 +25,17 @@ export class DetailsComponent implements OnInit {
     });
     this.service.getProducts()
 
+    /////////////////////////////////////  localstorage /////////////////////////////////////////////
+    let checkoutItemsSerialized: string = localStorage.getItem("checkoutItems") || "[]";
+    this.checkoutItems = JSON.parse(checkoutItemsSerialized);
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+
   }
 
-  attItemToCheckout(item:IProduct){
-    console.log(item);
+  attItemToCheckout(item: IProduct) {
 
-    this.service.addItemToCheckout(item)
-    
+    this.checkoutItems.push(item);
+    localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems))
 
   }
 }

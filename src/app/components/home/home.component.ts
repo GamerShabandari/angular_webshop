@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
 
   categories: ICategory[] = []
 
+  searchResult: IProduct[] = []
+
   constructor(private service: GetproductsService) { }
 
   ngOnInit(): void {
@@ -29,5 +31,15 @@ export class HomeComponent implements OnInit {
 
     this.service.getCategoriesFromApi();
     this.service.getProducts();
+  }
+
+  searchProduct(usersSearch:string){
+    if(usersSearch.length< 3){
+      return
+    }
+    this.service.searchForProduct(usersSearch); 
+    this.service.searchResult$.subscribe((searchResultsFromService) => {
+      this.searchResult = searchResultsFromService;
+    }) 
   }
 }

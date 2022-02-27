@@ -8,6 +8,13 @@
 
 </div>
 
+<div class="searchInputContainer">
+    <input type="text" placeholder="sök produkt" #searchInput>
+    <button (click)="searchProduct(searchInput.value)">sök produkt</button>
+
+    <div *ngFor="let result of searchResult">{{result.name}}
+</div>
+
 <section class="productsSection">
 
     <ng-container *ngIf="chosenCategory === 0">

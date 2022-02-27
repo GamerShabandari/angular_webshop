@@ -2,12 +2,11 @@
 
 <div class="itemsContainer">
     <h2>Dina varor</h2>
-    <div *ngFor="let item of checkoutItems; let i = index">{{item.name}} <button (click)="deleteItem(i)">delete
-            item</button> </div>
+    <div class="item" *ngFor="let item of checkoutItems; let i = index">{{item.name}} <button (click)="deleteItem(i)">ta bort vara</button> </div>
 </div>
 
 
-<div>
+<div class="formContainer">
     <form [formGroup]="userForm" (ngSubmit)="saveUser()">
         <fieldset>
             <legend>Fyll i dina uppgifter för att genomföra köp</legend>
@@ -15,11 +14,11 @@
 
             <div
                 *ngIf="userForm.get('firstname')?.invalid && userForm.get('firstname')?.touched && userForm.get('firstname')?.dirty">
-                <div *ngIf="userForm.get('firstname')?.errors?.['required']">
+                <div class="error" *ngIf="userForm.get('firstname')?.errors?.['required']">
                     Detta fält är obligatoriskt
                 </div>
 
-                <div *ngIf="userForm.get('firstname')?.errors?.['minlength']">
+                <div class="error"  *ngIf="userForm.get('firstname')?.errors?.['minlength']">
                     Förnamn måste bestå av minst 3 bokstäver
                 </div>
             </div>
@@ -28,11 +27,11 @@
 
             <div
                 *ngIf="userForm.get('lastname')?.invalid && userForm.get('lastname')?.touched && userForm.get('lastname')?.dirty">
-                <div *ngIf="userForm.get('lastname')?.errors?.['required']">
+                <div class="error"  *ngIf="userForm.get('lastname')?.errors?.['required']">
                     Detta fält är obligatoriskt.
                 </div>
 
-                <div *ngIf="userForm.get('lastname')?.errors?.['minlength']">
+                <div class="error"  *ngIf="userForm.get('lastname')?.errors?.['minlength']">
                     Efternamn måste bestå av minst 3 bokstäver.
                 </div>
             </div>
@@ -41,11 +40,11 @@
 
             <div
                 *ngIf="userForm.get('street')?.invalid && userForm.get('street')?.touched && userForm.get('street')?.dirty">
-                <div *ngIf="userForm.get('street')?.errors?.['required']">
+                <div class="error"  *ngIf="userForm.get('street')?.errors?.['required']">
                     Detta fält är obligatoriskt.
                 </div>
 
-                <div *ngIf="userForm.get('street')?.errors?.['minlength']">
+                <div class="error"  *ngIf="userForm.get('street')?.errors?.['minlength']">
                     Adress måste bestå av minst 3 bokstäver.
                 </div>
             </div>
@@ -53,19 +52,19 @@
             <input type="number" placeholder="postnummer" formControlName="zip">
 
             <div *ngIf="userForm.get('zip')?.invalid && userForm.get('zip')?.touched && userForm.get('zip')?.dirty">
-                <div *ngIf="userForm.get('zip')?.errors?.['required']">
+                <div class="error"  *ngIf="userForm.get('zip')?.errors?.['required']">
                     Detta fält är obligatoriskt.
                 </div>
 
-                <div *ngIf="userForm.get('zip')?.errors?.['minlength']">
+                <div class="error"  *ngIf="userForm.get('zip')?.errors?.['minlength']">
                     Postnummer måste bestå utav 5 siffror.
                 </div>
 
-                <div *ngIf="userForm.get('zip')?.errors?.['maxlength']">
+                <div class="error"  *ngIf="userForm.get('zip')?.errors?.['maxlength']">
                     Postnummer måste bestå utav 5 siffror.
                 </div>
 
-                <div *ngIf="userForm.get('zip')?.errors?.['pattern']">
+                <div class="error"  *ngIf="userForm.get('zip')?.errors?.['pattern']">
                     Postnummer måste bestå utav siffror.
                 </div>
             </div>
@@ -74,11 +73,11 @@
             <input type="text" placeholder="stad" formControlName="city">
 
             <div *ngIf="userForm.get('city')?.invalid && userForm.get('city')?.touched && userForm.get('city')?.dirty">
-                <div *ngIf="userForm.get('city')?.errors?.['required']">
+                <div class="error"  *ngIf="userForm.get('city')?.errors?.['required']">
                     Detta fält är obligatoriskt.
                 </div>
 
-                <div *ngIf="userForm.get('city')?.errors?.['minlength']">
+                <div class="error"  *ngIf="userForm.get('city')?.errors?.['minlength']">
                     Stad måste bestå av minst 3 bokstäver.
                 </div>
             </div>
@@ -87,11 +86,11 @@
 
             <div
                 *ngIf="userForm.get('country')?.invalid && userForm.get('country')?.touched && userForm.get('country')?.dirty">
-                <div *ngIf="userForm.get('country')?.errors?.['required']">
+                <div class="error"  *ngIf="userForm.get('country')?.errors?.['required']">
                     Detta fält är obligatoriskt.
                 </div>
 
-                <div *ngIf="userForm.get('country')?.errors?.['minlength']">
+                <div class="error"  *ngIf="userForm.get('country')?.errors?.['minlength']">
                     Land måste bestå av minst 3 bokstäver.
                 </div>
             </div>
@@ -100,11 +99,11 @@
 
             <div
                 *ngIf="userForm.get('phoneNr')?.invalid && userForm.get('phoneNr')?.touched && userForm.get('phoneNr')?.dirty">
-                <div *ngIf="userForm.get('phoneNr')?.errors?.['required']">
+                <div class="error"  *ngIf="userForm.get('phoneNr')?.errors?.['required']">
                     Detta fält är obligatoriskt.
                 </div>
 
-                <div *ngIf="userForm.get('phoneNr')?.errors?.['minlength']">
+                <div class="error"  *ngIf="userForm.get('phoneNr')?.errors?.['minlength']">
                     Telefonnummer måste bestå utav 10 siffror.
                 </div>
             </div>
@@ -113,11 +112,11 @@
 
             <div
                 *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched && userForm.get('email')?.dirty">
-                <div *ngIf="userForm.get('email')?.errors?.['required']">
+                <div class="error"  *ngIf="userForm.get('email')?.errors?.['required']">
                     Detta fält är obligatoriskt.
                 </div>
 
-                <div *ngIf="userForm.get('email')?.errors?.['minlength']">
+                <div class="error"  *ngIf="userForm.get('email')?.errors?.['minlength']">
                     Du har ej angett en korrekt epost adress.
                 </div>
             </div>
@@ -125,10 +124,12 @@
             <br>
 
 
-            <button type="submit" [disabled]="!userForm.valid || checkoutItems.length < 1">Spara och genomför
-                köp</button>
+            
 
 
         </fieldset>
+
+        <button type="submit" [disabled]="!userForm.valid || checkoutItems.length < 1">Spara och genomför köp</button>
+
     </form>
 </div>

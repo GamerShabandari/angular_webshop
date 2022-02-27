@@ -15,12 +15,12 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.orders = this.service.showOrdersToAdmin()
-
   }
 
   removeOrder(index: number) {
+    
     this.service.letAdminChangeOrder(index);
-    this.orders.splice(index, 1);
+    this.orders = this.service.showOrdersToAdmin()
+   
   }
-
 }
