@@ -14,8 +14,6 @@ export class DetailsComponent implements OnInit {
   products: IProduct[] = []
   checkoutItems: IProduct[] = [] 
 
-  itemsAmount:number = 0
-
   constructor(private route: ActivatedRoute, private service: GetproductsService) { }
 
   ngOnInit(): void {
@@ -34,16 +32,13 @@ export class DetailsComponent implements OnInit {
 
   }
 
+
   attItemToCheckout(item: IProduct) {
-
-    
-    this.itemsAmount ++
-
 
     this.checkoutItems.push(item);
     localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems));
 
-    this.service.updateBasketItemNumber(this.itemsAmount)
+    this.service.updateBasketItemNumber(this.checkoutItems.length)
     
   }
 }
