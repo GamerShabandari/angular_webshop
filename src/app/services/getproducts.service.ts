@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, Subject } from 'rxjs';
+import { catchError, first, Subject } from 'rxjs';
 import { ICategory } from '../models/ICategory';
 import { IOrder } from '../models/Iorder';
 import { IProduct } from '../models/IProduct';
@@ -43,7 +43,8 @@ export class GetproductsService {
   makePurchase(order: IOrder) {
 
     this.ordersArray.push(order);
-
+    
+    return this.http.post<IOrder>("https://medieinstitutet-wie-products.azurewebsites.net/api/orders",order)
   }
 
   showOrdersToAdmin(): IOrder[] {
@@ -59,13 +60,8 @@ export class GetproductsService {
 
   searchForProduct(usersSearch:string){
     
-
     this.http.get<IProduct[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText="+usersSearch).subscribe((data: IProduct[]) => {
       this.searchResult.next(data);
-      console.log(data);
-  
-      //?searchText=Dark
-
     })
     
   }
