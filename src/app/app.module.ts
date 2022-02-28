@@ -9,7 +9,8 @@ import { DetailsComponent } from './components/details/details.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HttpClientModule} from '@angular/common/http';
-import { NotfoundComponent } from './components/notfound/notfound.component'
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { NavbarComponent } from './components/navbar/navbar.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component'
     DetailsComponent,
     AdminComponent,
     CheckoutComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

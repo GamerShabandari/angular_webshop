@@ -12,7 +12,9 @@ export class DetailsComponent implements OnInit {
 
   productId: number = 0;
   products: IProduct[] = []
-  checkoutItems: IProduct[] = []
+  checkoutItems: IProduct[] = [] 
+
+  itemsAmount:number = 0
 
   constructor(private route: ActivatedRoute, private service: GetproductsService) { }
 
@@ -34,8 +36,14 @@ export class DetailsComponent implements OnInit {
 
   attItemToCheckout(item: IProduct) {
 
-    this.checkoutItems.push(item);
-    localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems))
+    
+    this.itemsAmount ++
 
+
+    this.checkoutItems.push(item);
+    localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems));
+
+    this.service.updateBasketItemNumber(this.itemsAmount)
+    
   }
 }

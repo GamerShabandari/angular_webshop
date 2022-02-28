@@ -26,8 +26,7 @@ export class CheckoutComponent implements OnInit {
   })
 
   checkoutItems: IProduct[] = []
-  //orderRows: OrderRow [] = []
-
+  
   constructor(private service: GetproductsService) { }
 
   ngOnInit(): void {
@@ -53,14 +52,11 @@ export class CheckoutComponent implements OnInit {
         const item = this.checkoutItems[i];
 
         totalPrice += item.price;
-        //this.orderRows.push(new OrderRow(item.id, item.id, item, 1, skriv orderid här))
-
       }
-
-      //let newOrderRows: OrderRow[] = new OrderRow()
       let newOrder = new IOrder(user, totalPrice, this.checkoutItems)
 
       this.service.makePurchase(newOrder)
+      this.service.updateBasketItemNumber(0)
       
       this.checkoutItems = []
       localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems))
@@ -73,6 +69,7 @@ export class CheckoutComponent implements OnInit {
   deleteItem(index: number) {
     this.checkoutItems.splice(index, 1)
     localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems))
+    this.service.updateBasketItemNumber(this.checkoutItems.length)
   }
 
 }
