@@ -1,15 +1,17 @@
 <header>
-    <nav>
-      <ul>
-        <li><a class="navbarLink" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Hem</a></li>
-        
-        <li><a class="navbarLink"  routerLink="/checkout" routerLinkActive="active">Varukorg
-            <div class="basketItemBadge" *ngIf="amountOfItemsInBasket > 0">{{amountOfItemsInBasket}}</div>
+  <h1>Flix-R-Us</h1>
+  <nav>
+    <ul>
+      <li><a class="navbarLink" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Hem</a>
+      </li>
+
+      <li><a class="navbarLink" routerLink="/checkout" routerLinkActive="active">Varukorg
+          <div class="basketItemBadge" *ngIf="amountOfItemsInBasket > 0">{{amountOfItemsInBasket}}</div>
         </a>
-          
-        </li>
-        
-        <li><a class="navbarLink"  routerLink="/admin" routerLinkActive="active">Admin</a></li>
-      </ul>
-    </nav>
-  </header>
+
+      </li>
+
+      <li><a class="navbarLink" routerLink="/admin" routerLinkActive="active">Admin</a></li>
+    </ul>
+  </nav>
+</header>

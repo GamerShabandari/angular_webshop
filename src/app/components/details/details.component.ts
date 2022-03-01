@@ -12,7 +12,7 @@ export class DetailsComponent implements OnInit {
 
   productId: number = 0;
   products: IProduct[] = []
-  checkoutItems: IProduct[] = [] 
+  checkoutItems: IProduct[] = []
 
   constructor(private route: ActivatedRoute, private service: GetproductsService) { }
 
@@ -39,6 +39,7 @@ export class DetailsComponent implements OnInit {
     localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems));
 
     this.service.updateBasketItemNumber(this.checkoutItems.length)
-    
+    localStorage.setItem("amountOfItemsInBasket", JSON.stringify(this.checkoutItems.length))
+
   }
 }

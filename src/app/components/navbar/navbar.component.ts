@@ -17,7 +17,10 @@ export class NavbarComponent implements OnInit {
     this.service.amountOfItems$.subscribe((amountOfItemsFromService) => {
       this.amountOfItemsInBasket = amountOfItemsFromService;
     });
-    
+
+    let amountOfItemsInBasketSerialized: string = localStorage.getItem("amountOfItemsInBasket") || "[]";
+    this.amountOfItemsInBasket = JSON.parse(amountOfItemsInBasketSerialized);
+
   }
 
 }

@@ -1,25 +1,33 @@
-<p>details works!</p>
+<main>
 
-<a class="navbarLink" routerLink="">tillbaka till produkter</a>
+    <a class="backBtn" routerLink="">tillbaka till produkter</a>
 
-<div class="productContainer">
-    <ng-container *ngFor="let p of products">
-
-       
-
-        <div *ngIf="p.id === productId" class="detailedProduct">
-
-            <h2>Titel: {{p.name}} </h2>
-            <img src="{{p.imageUrl}}" alt="poster of {{p.name}}">
-            <h3>Pris: {{p.price}}kr</h3>
-            <h4>Beskrivning: {{p.description}}</h4>
-            <h5>År: {{p.year}}</h5>
-            <button (click)="attItemToCheckout(p)">köp</button>
-        </div>
-
-        
+    <div class="productContainer">
+        <ng-container *ngFor="let p of products">
 
 
-    </ng-container>
-</div>
 
+            <div *ngIf="p.id === productId" class="detailedProduct">
+
+                <img src="{{p.imageUrl}}" alt="poster of {{p.name}}">
+                <div class="productInfo">
+                    <h2>{{p.name}} </h2>
+                    <h6><strong>artnr:</strong> {{p.id}}</h6>
+
+                    <h4><strong>Beskrivning:</strong> {{p.description}}</h4>
+                    <h5><strong>År:</strong> {{p.year}}</h5>
+
+                    <h3><strong>Pris:</strong> {{p.price}}kr</h3>
+                    <button (click)="attItemToCheckout(p)">köp</button>
+
+                </div>
+
+            </div>
+
+
+
+
+        </ng-container>
+    </div>
+
+</main>

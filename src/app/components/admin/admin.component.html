@@ -1,27 +1,29 @@
-<p>admin works!</p>
+<main>
+    <h2>Lagda ordrar:</h2>
+    <div class="ordersContainer">
 
-<h2>Lagda ordrar:</h2>
-<div class="ordersContainer">
+        <div class="order" *ngFor="let order of orders; let i = index">
 
-    <div class="order" *ngFor="let order of orders; let i = index">
+            <div>OrderId = {{order.id}}</div>
 
-        <div>OrderId = {{order.id}}</div>
-
-        <div> Articklar:
-            <div *ngFor="let row of order.orderRows">
-               <h3> Namn:{{row.product.name}}</h3>
-               <h4> Pris:{{row.product.price}}</h4>
+            <div> Articklar:
+                <div *ngFor="let row of order.orderRows">
+                    <h3> Namn:{{row.product.name}}</h3>
+                    <h4> Pris:{{row.product.price}}</h4>
+                </div>
             </div>
+
+            <div> Betalningsmedel: {{order.paymentMethod}}</div>
+
+            <div>
+                <h3>Köpare: Förnamn: {{order.createdBy.firstname}}, Efternamn: {{order.createdBy.lastname}},</h3>
+                <h4> Epost: {{order.createdBy.email}}, Telefon: {{order.createdBy.phoneNr}}</h4>
+            </div>
+            <div> Skapad: {{order.created | date: "yyyy-MM-dd"}}</div>
+            <div> Order summa: {{order.totalPrice}}kr </div>
+
+            <button (click)="removeOrder(i)">radera order</button>
         </div>
 
-        <div> Betalningsmedel: {{order.paymentMethod}}</div>
-
-        <div> <h3>Köpare: Förnamn: {{order.createdBy.firstname}}, Efternamn: {{order.createdBy.lastname}},</h3> <h4> Epost: {{order.createdBy.email}}, Telefon: {{order.createdBy.phoneNr}}</h4>
-        </div>
-        <div> Skapad: {{order.created | date: "yyyy-MM-dd"}}</div>
-        <div> Order summa: {{order.totalPrice}}kr </div>
-
-        <button (click)="removeOrder(i)">radera order</button>
     </div>
-
-</div>
+</main>

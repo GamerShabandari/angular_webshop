@@ -25,13 +25,16 @@ export class CheckoutComponent implements OnInit {
 
   })
 
+  madePurchase:boolean = true
+
   checkoutItems: IProduct[] = []
-  
+
   constructor(private service: GetproductsService) { }
 
   ngOnInit(): void {
-    let checkoutItemsSerialized : string = localStorage.getItem("checkoutItems") || "[]";
+    let checkoutItemsSerialized: string = localStorage.getItem("checkoutItems") || "[]";
     this.checkoutItems = JSON.parse(checkoutItemsSerialized);
+    this.madePurchase = true
   }
 
   saveUser() {
@@ -57,9 +60,11 @@ export class CheckoutComponent implements OnInit {
 
       this.service.makePurchase(newOrder)
       this.service.updateBasketItemNumber(0)
-      
+
       this.checkoutItems = []
       localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems))
+
+      this.madePurchase = true
 
     } else {
       return
@@ -70,6 +75,7 @@ export class CheckoutComponent implements OnInit {
     this.checkoutItems.splice(index, 1)
     localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems))
     this.service.updateBasketItemNumber(this.checkoutItems.length)
+    localStorage.setItem("amountOfItemsInBasket", JSON.stringify(this.checkoutItems.length))
   }
 
 }
