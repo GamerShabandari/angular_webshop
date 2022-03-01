@@ -6,7 +6,7 @@ export class IOrder {
     id: number;
     companyId: number;
     created: Date;
-    createdBy: IUser;
+    createdBy: string;
     paymentMethod: string;
     totalPrice: number;
     status: number;
@@ -29,7 +29,7 @@ export class IOrder {
         this.id = randomOrderId;
         this.companyId = 42;
         this.created = new Date();
-        this.createdBy = user;
+        this.createdBy = "Name:" + user.firstname + "Adress:" + user.street;
         this.paymentMethod = "Paypal"
         this.totalPrice = totalPrice;
         this.status = 0;
