@@ -1,8 +1,7 @@
-<p>checkout works!</p>
 
 <div class="itemsContainer">
     <h2>Dina varor</h2>
-    <div class="item" *ngFor="let item of checkoutItems; let i = index">{{item.name}} <button (click)="deleteItem(i)">ta bort vara</button> </div>
+    <div class="item" *ngFor="let item of checkoutItems; let i = index"><img src="{{item.imageUrl}}" width="60px"> <h4>{{item.name | slice:0:30}}</h4>  <h5>{{item.price}}kr</h5> <button (click)="deleteItem(i)">X</button> </div>
 </div>
 
 

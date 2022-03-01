@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
 
     this.service.getCategoriesFromApi();
     this.service.getProducts();
+    
   }
 
   searchProduct(usersSearch:string){

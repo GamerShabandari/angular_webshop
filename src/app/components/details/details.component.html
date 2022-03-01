@@ -1,9 +1,11 @@
 <p>details works!</p>
 
+<a class="navbarLink" routerLink="">tillbaka till produkter</a>
+
 <div class="productContainer">
     <ng-container *ngFor="let p of products">
 
-        <!-- <div (click)="attItemToCheckout(p)" >{{p.id}} {{p.name}}</div> -->
+       
 
         <div *ngIf="p.id === productId" class="detailedProduct">
 
@@ -15,6 +17,9 @@
             <button (click)="attItemToCheckout(p)">köp</button>
         </div>
 
+        
+
 
     </ng-container>
 </div>
+
