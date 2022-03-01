@@ -14,10 +14,17 @@
                     <h2>{{p.name}} </h2>
                     <h6><strong>artnr:</strong> {{p.id}}</h6>
 
+                    <div class="decorationLine"></div>
+
                     <h4><strong>Beskrivning:</strong> {{p.description}}</h4>
                     <h5><strong>År:</strong> {{p.year}}</h5>
 
+                    <div class="decorationLine"></div>
+
                     <h3><strong>Pris:</strong> {{p.price}}kr</h3>
+
+                    <div class="decorationLine"></div>
+                    
                     <button (click)="attItemToCheckout(p)">köp</button>
 
                 </div>

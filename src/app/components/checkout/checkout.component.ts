@@ -25,7 +25,7 @@ export class CheckoutComponent implements OnInit {
 
   })
 
-  madePurchase:boolean = true
+  madePurchase:boolean = false;
 
   checkoutItems: IProduct[] = []
 
@@ -34,7 +34,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     let checkoutItemsSerialized: string = localStorage.getItem("checkoutItems") || "[]";
     this.checkoutItems = JSON.parse(checkoutItemsSerialized);
-    this.madePurchase = true
+    this.madePurchase = false;
   }
 
   saveUser() {

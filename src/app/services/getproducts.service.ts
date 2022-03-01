@@ -45,7 +45,30 @@ export class GetproductsService {
 
     this.ordersArray.push(order);
 
-    return this.http.post<IOrder>("https://medieinstitutet-wie-products.azurewebsites.net/api/orders", order)
+    console.warn(order)
+
+    this.http.post<IOrder>("https://medieinstitutet-wie-products.azurewebsites.net/api/orders", order).subscribe((result) => {
+      console.warn(result)
+    })
+
+    // testar 
+
+    // const data = { order };
+
+    //     fetch('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', {
+    //       method: 'POST', // or 'PUT'
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //       body: JSON.stringify(data),
+    //     })
+    //       .then(response => response.json())
+    //       .then(data => {
+    //         console.log('Success:', data);
+    //       })
+    //       .catch((error) => {
+    //         console.error('Error:', error);
+    //       });
   }
 
   showOrdersToAdmin(): IOrder[] {
