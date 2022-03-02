@@ -154,6 +154,12 @@ main{
                 color: darkcyan;
                 border: 1px solid darkcyan;
             }
+
+            &:disabled{
+                background-color: rgba(0, 139, 139, 0.205);
+                border: 1px solid whitesmoke;
+                color: whitesmoke;
+}
         }
     }
 
