@@ -5,7 +5,7 @@ import { OrderRow } from "./OrderRow";
 export class IOrder {
     id: number;
     companyId: number;
-    created: Date;
+    created: string;
     createdBy: string;
     paymentMethod: string;
     totalPrice: number;
@@ -28,7 +28,10 @@ export class IOrder {
 
         this.id = 0;
         this.companyId = 42;
-        this.created = new Date();
+
+        this.created = (new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0]);
+    
+        //this.created = new Date();
         this.createdBy = "Name:" + user.firstname + "Adress:" + user.street;
         this.paymentMethod = "Paypal"
         this.totalPrice = totalPrice;
