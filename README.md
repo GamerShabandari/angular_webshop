@@ -1,2 +1,2 @@
-#Angular schoolwork
-##url: https://gamershabandari.github.io/angular_webshop/
+Angular schoolwork
+url: https://gamershabandari.github.io/angular_webshop/
