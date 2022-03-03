@@ -21,6 +21,7 @@
                     <div class="productInfo">
                         <h5>{{result.name | uppercase | slice:0:30}}</h5>
                         <h4>{{result.price}}kr</h4>
+                        
                     </div>
                 </a>
             </div>
@@ -30,7 +31,7 @@
     <section class="productsSection">
 
         <ng-container *ngIf="chosenCategory === 0">
-            <div *ngFor="let product of products">
+            <div class="productContainer" *ngFor="let product of products">
                 <a class="product" routerLink="/details/{{product.id}}">
                     <img src="{{product.imageUrl}}" alt="poster of {{product.name}}" width="100px">
                     <div class="productInfo">
@@ -38,6 +39,7 @@
                         <h4>{{product.price}}kr</h4>
                     </div>
                 </a>
+                <button (click)="attItemToCheckout(product)">köp</button>
             </div>
         </ng-container>
 

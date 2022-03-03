@@ -162,6 +162,13 @@ main{
     gap: 30px;
 }
 
+.productContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .product{
         border: 1px solid darkcyan;
         background-color: white;
