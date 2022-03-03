@@ -1,4 +1,4 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from 'src/app/models/ICategory';
 import { IProduct } from 'src/app/models/IProduct';
@@ -15,13 +15,27 @@ import { GetproductsService } from 'src/app/services/getproducts.service';
           opacity: 0,
           transform: 'scale(0)'
         }),
-        animate('300ms', style({
+        animate('200ms', style({
           opacity: 1,
           transform: 'scale(1)'
         })),
         animate(500)
       ])
     ])
+    // ,
+
+    // trigger("listAnim", [
+    //   transition("* => *", [
+    //     query(":enter", [
+    //       style({
+    //         opacity: 0,
+    //       }),
+    //       stagger(200, [
+    //         animate("1.4s ease")
+    //       ])
+    //     ])
+    //   ])
+    // ])
 
   ]
 })
