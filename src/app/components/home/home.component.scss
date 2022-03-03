@@ -127,6 +127,10 @@ main{
         transition:all;
         transition-duration: 0.3s;
 
+        img{
+            border-radius: 5px;
+        }
+
         h5{
             color: darkcyan;
             font-weight: 100;
@@ -207,6 +211,10 @@ main{
         text-decoration: none;
         transition:all;
         transition-duration: 0.3s;
+
+            img{
+                border-radius: 5px;
+            }
 
         h5{
             color: darkcyan;
