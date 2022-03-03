@@ -10,8 +10,8 @@
                 <h3>Articklar:</h3>
                 <div class="decorationLine"></div>
                 <div *ngFor="let row of order.orderRows">
-                    <h3> Namn:{{row.product.name}}</h3>
-                    <h4> Pris:{{row.product.price}}</h4>
+                    <h3> Namn:{{row.product}}</h3>
+                    <h4> Pris:{{row.product}}</h4>
                     <div class="decorationLine"></div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
 
             <div>
                 <h3> <strong> Köpare: </strong> Namn: {{order.createdBy}}</h3>
-                <!-- <h4> Epost: {{order.createdBy.email}}, Telefon: {{order.createdBy.phoneNr}}</h4> -->
+                <h4> Epost: {{order.createdBy}}, Telefon: {{order.createdBy}}</h4>
             </div>
             <div class="decorationLine"></div>
             <div> Skapad: {{order.created | date: "yyyy-MM-dd"}}</div>
