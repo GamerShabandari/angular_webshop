@@ -4,7 +4,6 @@ import { catchError, first, Observable, Subject } from 'rxjs';
 import { ICategory } from '../models/ICategory';
 import { IOrder } from '../models/Iorder';
 import { IProduct } from '../models/IProduct';
-import { IUser } from '../models/IUser';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +22,8 @@ export class GetproductsService {
   private categories = new Subject<ICategory[]>();
   public categories$ = this.categories.asObservable();
 
-  private ordersArray: IOrder[] = []
+  private orders = new Subject<IOrder[]>();
+  public orders$ = this.orders.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -43,25 +43,27 @@ export class GetproductsService {
 
   makePurchase(order: IOrder) {
 
-    this.ordersArray.push(order);
-
     const httpHeaders = new HttpHeaders();
     httpHeaders.append('', 'aplication/json');
     return this.http.post('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', order, { headers: httpHeaders}).subscribe((result) => {
-      console.warn(result)
+      //console.warn(result)
     });
   }
 
-  showOrdersToAdmin(): IOrder[] {
 
-    return this.ordersArray
+  getOrderToAdmin(){
+    this.http.get<IOrder[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=42").subscribe((data: IOrder[]) => {
+
+      this.orders.next(data);
+
+    })
   }
 
-  letAdminChangeOrder(index: number) {
+  letAdminDeleteOrder(id: number) {
 
-    this.ordersArray.splice(index, 1);
-
-  }
+    this.http.delete("https://medieinstitutet-wie-products.azurewebsites.net/api/orders/"+id+"?companyId=42")
+        .subscribe(() => this.getOrderToAdmin());
+  } 
 
   searchForProduct(usersSearch: string) {
 

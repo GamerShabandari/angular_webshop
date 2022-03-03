@@ -2,37 +2,36 @@
     <h2>Lagda ordrar:</h2>
     <div class="ordersContainer">
 
-        <div class="order" *ngFor="let order of orders; let i = index">
+        <div class="order" *ngFor="let order of orders">
 
-            <h4>OrderId = {{order.id}}</h4>
+            <h4 class="orderId">OrderId: {{order.id}}</h4>
 
             <div>
-                <h3>Articklar:</h3>
-                <div class="decorationLine"></div>
-                <div *ngFor="let row of order.orderRows">
-                    <h3> Namn:{{row.product}}</h3>
-                    <h4> Pris:{{row.product}}</h4>
-                    <div class="decorationLine"></div>
+
+                <h3 class="items">Artiklar:</h3>
+
+                <div class="orderItem" *ngFor="let row of order.orderRows">
+                    <ng-container *ngFor="let product of products">
+                        <!-- <div *ngIf="product.id === row.productId"> <img src="{{product.imageUrl}}" width="50px"></div> -->
+                        <h3 class="title" *ngIf="product.id === row.productId"> Titel: {{product.name}}</h3>
+                        <h3 *ngIf="product.id === row.productId"> Pris: {{product.price}}kr</h3>
+                        
+                    </ng-container>
+                    
                 </div>
             </div>
+            <div class="decorationLine"></div>
+            <h4> Betalningsmedel: {{order.paymentMethod}}</h4>
+            <div class="decorationLine"></div>
+            <h3>Köpare: {{order.createdBy}}</h3>
 
-            <div>
-                <h4> Betalningsmedel: {{order.paymentMethod}}
-                </h4>
-                <div class="decorationLine"></div>
-            </div>
-
-            <div>
-                <h3> <strong> Köpare: </strong> Namn: {{order.createdBy}}</h3>
-                <h4> Epost: {{order.createdBy}}, Telefon: {{order.createdBy}}</h4>
-            </div>
             <div class="decorationLine"></div>
             <div> Skapad: {{order.created | date: "yyyy-MM-dd"}}</div>
             <div class="decorationLine"></div>
             <div> Order summa: {{order.totalPrice}}kr </div>
             <div class="decorationLine"></div>
 
-            <button (click)="removeOrder(i)">radera order</button>
+            <button (click)="removeOrder(order.id)">radera order</button>
         </div>
 
     </div>

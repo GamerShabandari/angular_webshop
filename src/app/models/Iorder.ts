@@ -19,7 +19,7 @@ export class IOrder {
 
         for (let i = 0; i < orderRows.length; i++) {
             const order = orderRows[i];
-            let row = new OrderRow(order.id, order, 1)
+            let row = new OrderRow(order.id, 1)
             
             rows.push(row)
         }
@@ -27,7 +27,7 @@ export class IOrder {
         this.id = Number()
         this.companyId = 42;
         this.created = (new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0]);
-        this.createdBy = "Name:" + user.firstname + "Adress:" + user.street;
+        this.createdBy = user.firstname + " " + user.lastname;
         this.paymentMethod = "Paypal"
         this.totalPrice = totalPrice;
         this.status = 0;

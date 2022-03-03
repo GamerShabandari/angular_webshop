@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IOrder } from 'src/app/models/Iorder';
+import { IProduct } from 'src/app/models/IProduct';
 import { GetproductsService } from 'src/app/services/getproducts.service';
 
 @Component({
@@ -11,16 +12,27 @@ export class AdminComponent implements OnInit {
 
   orders: IOrder[] = []
 
+  products: IProduct[] = []
+
   constructor(private service: GetproductsService) { }
 
   ngOnInit(): void {
-    this.orders = this.service.showOrdersToAdmin()
+
+    this.service.products$.subscribe((productsFromService) => {
+      this.products = productsFromService;  
+    });
+    this.service.getProducts();
+
+    this.service.orders$.subscribe((ordersFromService) => {
+    this.orders = ordersFromService;  
+    });
+    this.service.getOrderToAdmin()
+
   }
 
-  removeOrder(index: number) {
+  removeOrder(id: number) {
     
-    this.service.letAdminChangeOrder(index);
-    this.orders = this.service.showOrdersToAdmin()
-   
+    this.service.letAdminDeleteOrder(id);
+       
   }
 }

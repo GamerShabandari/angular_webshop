@@ -59,7 +59,9 @@ export class CheckoutComponent implements OnInit {
       let newOrder = new IOrder(user, totalPrice, this.checkoutItems)
 
       this.service.makePurchase(newOrder)
+
       this.service.updateBasketItemNumber(0)
+      localStorage.setItem("amountOfItemsInBasket", JSON.stringify(0))
 
       this.checkoutItems = []
       localStorage.setItem("checkoutItems", JSON.stringify(this.checkoutItems))
