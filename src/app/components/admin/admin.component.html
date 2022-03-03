@@ -12,7 +12,6 @@
 
                 <div class="orderItem" *ngFor="let row of order.orderRows">
                     <ng-container *ngFor="let product of products">
-                        <!-- <div *ngIf="product.id === row.productId"> <img src="{{product.imageUrl}}" width="50px"></div> -->
                         <h3 class="title" *ngIf="product.id === row.productId"> Titel: {{product.name}}</h3>
                         <h3 *ngIf="product.id === row.productId"> Pris: {{product.price}}kr</h3>
                         
