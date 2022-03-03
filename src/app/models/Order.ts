@@ -1,5 +1,5 @@
 import { IProduct } from "./IProduct";
-import { IUser } from "./IUser";
+import { IUser } from "./User";
 import { OrderRow } from "./OrderRow";
 
 export class IOrder {

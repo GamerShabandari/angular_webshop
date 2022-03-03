@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, first, Observable, Subject } from 'rxjs';
 import { ICategory } from '../models/ICategory';
-import { IOrder } from '../models/Iorder';
+import { IOrder } from '../models/Order';
 import { IProduct } from '../models/IProduct';
 
 @Injectable({

@@ -1,4 +1,3 @@
-import { IProduct } from "./IProduct";
 
 export class OrderRow {
     id:number;

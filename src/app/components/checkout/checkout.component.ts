@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IOrder } from 'src/app/models/Iorder';
+import { IOrder } from 'src/app/models/Order';
 import { IProduct } from 'src/app/models/IProduct';
-import { IUser } from 'src/app/models/IUser';
+import { IUser } from 'src/app/models/User';
 import { OrderRow } from 'src/app/models/OrderRow';
 import { GetproductsService } from 'src/app/services/getproducts.service';
 
