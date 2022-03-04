@@ -22,21 +22,6 @@ import { GetproductsService } from 'src/app/services/getproducts.service';
         animate(500)
       ])
     ])
-    // ,
-
-    // trigger("listAnim", [
-    //   transition("* => *", [
-    //     query(":enter", [
-    //       style({
-    //         opacity: 0,
-    //       }),
-    //       stagger(200, [
-    //         animate("1.4s ease")
-    //       ])
-    //     ])
-    //   ])
-    // ])
-
   ]
 })
 export class HomeComponent implements OnInit {
