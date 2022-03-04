@@ -2,7 +2,8 @@
     <div>
         <ul class="categoryContainer">
             <li *ngFor="let category of categories">
-                <div (click)="chosenCategory = category.id; searchResult.length = 0">{{category.name}}</div>
+                <div class="category" (click)="chosenCategory = category.id; searchResult.length = 0">{{category.name}}
+                </div>
             </li>
             <li (click)="chosenCategory = 0; searchResult.length = 0">Alla produkter</li>
         </ul>
@@ -14,19 +15,19 @@
         <button (click)="searchProduct(searchInput.value)">sök</button>
     </div>
 
-        <div *ngIf="searchResult.length > 0" class="searchResultContainer">
-            <div *ngFor="let result of searchResult">
-                <a [@itemAnim]  class="product" routerLink="/details/{{result.id}}">
-                    <img src="{{result.imageUrl}}" alt="poster of {{result.name}}" width="100px">
-                    <div class="productInfo">
-                        <h5>{{result.name | uppercase | slice:0:30}}</h5>
-                        <h4>{{result.price}}kr</h4>
-                        
-                    </div>
-                </a>
-            </div>
+    <div *ngIf="searchResult.length > 0" class="searchResultContainer">
+        <div *ngFor="let result of searchResult">
+            <a [@itemAnim] class="product" routerLink="/details/{{result.id}}">
+                <img src="{{result.imageUrl}}" alt="poster of {{result.name}}" width="100px">
+                <div class="productInfo">
+                    <h5>{{result.name | uppercase | slice:0:30}}</h5>
+                    <h4>{{result.price}}kr</h4>
+
+                </div>
+            </a>
         </div>
-    
+    </div>
+
 
     <section class="productsSection">
 
@@ -46,8 +47,8 @@
         <ng-container *ngIf="chosenCategory > 0">
 
             <ng-container *ngFor="let product of products">
-                <ng-container *ngFor="let categories of product.productCategory">
-                    <div *ngIf="categories.categoryId === chosenCategory">
+                <ng-container  *ngFor="let categories of product.productCategory">
+                    <div class="productContainer" *ngIf="categories.categoryId === chosenCategory">
                         <a [@itemAnim] class="product" routerLink="/details/{{product.id}}">
                             <img src="{{product.imageUrl}}" alt="poster of {{product.name}}" width="100px">
                             <div class="productInfo">
@@ -55,6 +56,7 @@
                                 <h4>{{product.price}}kr</h4>
                             </div>
                         </a>
+                        <button [@itemAnim] (click)="attItemToCheckout(product)">köp</button>
                     </div>
                 </ng-container>
 
