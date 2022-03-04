@@ -18,8 +18,7 @@ import { GetproductsService } from 'src/app/services/getproducts.service';
         animate('200ms', style({
           opacity: 1,
           transform: 'scale(1)'
-        })),
-        animate(500)
+        }))
       ])
     ])
   ]

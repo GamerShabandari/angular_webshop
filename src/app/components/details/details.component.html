@@ -7,7 +7,7 @@
 
 
 
-            <div *ngIf="p.id === productId" class="detailedProduct">
+            <div [@itemAnim] *ngIf="p.id === productId" class="detailedProduct">
 
                 <img src="{{p.imageUrl}}" alt="poster of {{p.name}}">
                 <div class="productInfo">

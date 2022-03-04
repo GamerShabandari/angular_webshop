@@ -2,7 +2,7 @@
     <h2>Lagda ordrar:</h2>
     <div class="ordersContainer">
 
-        <div class="order" *ngFor="let order of orders">
+        <div [@itemAnim] class="order" *ngFor="let order of orders">
 
             <h4 class="orderId">OrderId: {{order.id}}</h4>
 
