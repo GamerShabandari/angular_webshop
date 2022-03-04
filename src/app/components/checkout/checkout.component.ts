@@ -21,7 +21,8 @@ export class CheckoutComponent implements OnInit {
     city: new FormControl("", [Validators.required, Validators.minLength(3)]),
     country: new FormControl("", [Validators.required, Validators.minLength(3)]),
     phoneNr: new FormControl("", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
-    email: new FormControl("", [Validators.required, Validators.email])
+    email: new FormControl("", [Validators.required, Validators.email]),
+    payment: new FormControl("", [Validators.required])
 
   })
 
@@ -39,7 +40,7 @@ export class CheckoutComponent implements OnInit {
 
   saveUser() {
 
-    let createdUser = new IUser(this.userForm.value.firstname, this.userForm.value.lastname, this.userForm.value.street, this.userForm.value.zip, this.userForm.value.city, this.userForm.value.country, this.userForm.value.phoneNr, this.userForm.value.email,)
+    let createdUser = new IUser(this.userForm.value.firstname, this.userForm.value.lastname, this.userForm.value.street, this.userForm.value.zip, this.userForm.value.city, this.userForm.value.country, this.userForm.value.phoneNr, this.userForm.value.email, this.userForm.value.payment)
     this.makePurchase(createdUser)
     this.userForm.reset()
 
@@ -56,7 +57,7 @@ export class CheckoutComponent implements OnInit {
 
         totalPrice += item.price;
       }
-      let newOrder = new IOrder(user, totalPrice, this.checkoutItems)
+      let newOrder = new IOrder(user, totalPrice, this.checkoutItems, user.payment)
 
       this.service.makePurchase(newOrder)
 

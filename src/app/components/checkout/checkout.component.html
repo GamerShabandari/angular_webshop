@@ -124,6 +124,25 @@
                     </div>
                 </div>
 
+                <h4>Välj betalningsmedel nedan</h4>
+                <select placeholder="betalningsmedel" formControlName="payment">
+                    <option value="Swish">Swish</option>
+                    <option value="Klarna">Klarna</option>
+                    <option value="Paypal">Paypal</option>
+                    <option value="Internetbanken">Internetbanken</option>
+                </select>
+
+                <div
+                    *ngIf="userForm.get('payment')?.invalid && userForm.get('payment')?.touched && userForm.get('payment')?.dirty">
+                    <div class="error" *ngIf="userForm.get('email')?.errors?.['required']">
+                        Detta fält är obligatoriskt.
+                    </div>
+
+                    <div class="error" *ngIf="userForm.get('email')?.errors?.['minlength']">
+                        Du har ej angett en korrekt epost adress.
+                    </div>
+                </div>
+
                 <br>
 
 
@@ -135,10 +154,11 @@
             <button type="submit" [disabled]="!userForm.valid || checkoutItems.length < 1">Spara och genomför
                 köp</button>
 
-                
+
 
         </form>
     </div>
-    <div class="purchaseMade" *ngIf="madePurchase === true">Tack för ditt köp! <br> Din order kommer nu att behandlas och därefter skickas till dig. </div>
-    
+    <div class="purchaseMade" *ngIf="madePurchase === true">Tack för ditt köp! <br> Din order kommer nu att behandlas
+        och därefter skickas till dig. </div>
+
 </main>

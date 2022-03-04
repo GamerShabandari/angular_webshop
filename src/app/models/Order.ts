@@ -12,7 +12,7 @@ export class IOrder {
     status: number;
     orderRows: OrderRow[]
 
-    constructor(user:IUser, totalPrice:number , orderRows:IProduct[]){
+    constructor(user:IUser, totalPrice:number , orderRows:IProduct[], payment:string){
         
 
         let rows: OrderRow[] = []
@@ -28,7 +28,7 @@ export class IOrder {
         this.companyId = 42;
         this.created = (new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0]);
         this.createdBy = user.firstname + " " + user.lastname;
-        this.paymentMethod = "Paypal"
+        this.paymentMethod = payment;
         this.totalPrice = totalPrice;
         this.status = 0;
         this.orderRows = rows   
