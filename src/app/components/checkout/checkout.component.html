@@ -53,27 +53,6 @@
                     </div>
                 </div>
 
-                <input type="number" placeholder="postnummer" formControlName="zip">
-
-                <div *ngIf="userForm.get('zip')?.invalid && userForm.get('zip')?.touched && userForm.get('zip')?.dirty">
-                    <div class="error" *ngIf="userForm.get('zip')?.errors?.['required']">
-                        Detta fält är obligatoriskt.
-                    </div>
-
-                    <div class="error" *ngIf="userForm.get('zip')?.errors?.['minlength']">
-                        Postnummer måste bestå utav 5 siffror.
-                    </div>
-
-                    <div class="error" *ngIf="userForm.get('zip')?.errors?.['maxlength']">
-                        Postnummer måste bestå utav 5 siffror.
-                    </div>
-
-                    <div class="error" *ngIf="userForm.get('zip')?.errors?.['pattern']">
-                        Postnummer måste bestå utav siffror.
-                    </div>
-                </div>
-
-
                 <input type="text" placeholder="stad" formControlName="city">
 
                 <div
@@ -100,20 +79,16 @@
                     </div>
                 </div>
 
-                <input type="number" placeholder="telefon" formControlName="phoneNr">
+                <input type="number" placeholder="mobilnummmer" formControlName="phoneNr">
 
                 <div
-                    *ngIf="userForm.get('phoneNr')?.invalid && userForm.get('phoneNr')?.touched && userForm.get('phoneNr')?.dirty">
+                    *ngIf="userForm.get('phoneNr')?.touched && userForm.get('phoneNr')?.dirty">
                     <div class="error" *ngIf="userForm.get('phoneNr')?.errors?.['required']">
-                        Detta fält är obligatoriskt.
-                    </div>
-
-                    <div class="error" *ngIf="userForm.get('phoneNr')?.errors?.['minlength']">
-                        Telefonnummer måste bestå utav 10 siffror.
+                        Detta fält är obligatoriskt och måste innehålla ett mobilnummer.
                     </div>
 
                     <div class="error" *ngIf="userForm.get('phoneNr')?.errors?.['pattern']">
-                        Telefonnummer måste bestå utav siffror.
+                        Telefonnummer måste bestå utav 10 siffror.
                     </div>
                 </div>
 

@@ -33,10 +33,9 @@ export class CheckoutComponent implements OnInit {
     firstname: new FormControl("", [Validators.required, Validators.minLength(3)]),
     lastname: new FormControl("", [Validators.required, Validators.minLength(3)]),
     street: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    zip: new FormControl("", [Validators.required, Validators.minLength(5), Validators.maxLength(5), Validators.pattern("^[0-9]*$")]),
     city: new FormControl("", [Validators.required, Validators.minLength(3)]),
     country: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    phoneNr: new FormControl("", [Validators.required, Validators.minLength(10), Validators.maxLength(10),Validators.pattern("^[0-9]*$")]),
+    phoneNr: new FormControl("", [Validators.required, Validators.pattern("^((\\+46-?)|0)?[0-9]{10}$")]),
     email: new FormControl("", [Validators.required, Validators.email]),
     payment: new FormControl("", [Validators.required])
 
@@ -56,7 +55,7 @@ export class CheckoutComponent implements OnInit {
 
   saveUser() {
 
-    let createdUser = new IUser(this.userForm.value.firstname, this.userForm.value.lastname, this.userForm.value.street, this.userForm.value.zip, this.userForm.value.city, this.userForm.value.country, this.userForm.value.phoneNr, this.userForm.value.email, this.userForm.value.payment)
+    let createdUser = new IUser(this.userForm.value.firstname, this.userForm.value.lastname, this.userForm.value.street, this.userForm.value.city, this.userForm.value.country, this.userForm.value.phoneNr, this.userForm.value.email, this.userForm.value.payment)
     this.makePurchase(createdUser)
     this.userForm.reset()
 
