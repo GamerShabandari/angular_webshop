@@ -1,5 +1,6 @@
 <main>
     <div>
+        <!-- tar in categorier från API och visar dem på skärmen, om chosenCategory sätts till 0 visas alla produkter -->
         <ul class="categoryContainer">
             <li *ngFor="let category of categories">
                 <div class="category" (click)="chosenCategory = category.id; searchResult.length = 0">{{category.name}}
@@ -9,6 +10,8 @@
         </ul>
 
     </div>
+
+    <!-- låter användaren söka produkt baserat på titel, resultat-fält visas bara när man sökt och fått en träff. resultaten animeras in -->
 
     <div class="searchInputContainer">
         <input type="text" placeholder="titel" #searchInput>
@@ -28,6 +31,7 @@
         </div>
     </div>
 
+     <!-- Nedan visar alla produkter på skärmen ( enbart när chosencategory är = 0). Varje produkt är en länk för att få mer info och har även en knapp för direkt köp. resultaten animeras in -->
 
     <section class="productsSection">
 
@@ -43,6 +47,9 @@
                 <button [@itemAnim] (click)="attItemToCheckout(product)">köp</button>
             </div>
         </ng-container>
+
+    
+    <!-- Nedan visas när användaren valt en kategori av produkter ( enbart när chosencategory är större än 0). Varje produkt är en länk för att få mer info och har även en knapp för direkt köp. resultaten animeras in -->
 
         <ng-container *ngIf="chosenCategory > 0">
 

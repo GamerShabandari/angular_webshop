@@ -1,10 +1,12 @@
 <header>
+  <!-- header med navigation som alltid syns på skärmen, logga länkar tillbaka till hem komponent, navigering till höger länkar till tillhörande komponent -->
   <h1><a class="navbarLogo" routerLink="">Flix-R-Us</a></h1>
   <nav>
     <ul>
       <li><a class="navbarLink" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Hem</a>
       </li>
 
+      <!-- innehåller en extra del som ständigt håller koll på givet antal produkter i varukorgen och visar detta som en badge ovanför länk-->
       <li><a class="navbarLink" routerLink="/checkout" routerLinkActive="active">Varukorg
           <div class="basketItemBadge" *ngIf="amountOfItemsInBasket > 0">{{amountOfItemsInBasket}}</div>
         </a>

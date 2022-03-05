@@ -5,7 +5,7 @@
     <div class="productContainer">
         <ng-container *ngFor="let p of products">
 
-
+            <!-- Nedan visar en mer detaljerad vy av produkten om använderan klickat på den i föregående sida. resultatet animeras in -->
 
             <div [@itemAnim] *ngIf="p.id === productId" class="detailedProduct">
 

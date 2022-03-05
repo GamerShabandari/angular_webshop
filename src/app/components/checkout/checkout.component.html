@@ -1,4 +1,6 @@
 <main>
+
+    <!-- Visar alla produkter användaren har i sin varukorg (lagrat i localstorage), här kan man välja att radera enskillda produkter om man ångrat sig. resultaten animeras in -->
     <div class="itemsContainer">
         <h2>Dina varor</h2>
         <div [@itemAnim] class="item" *ngFor="let item of checkoutItems; let i = index"><img src="{{item.imageUrl}}" width="60px">
@@ -7,7 +9,7 @@
         </div>
     </div>
 
-
+     <!-- Formulär som måste fyllas i korrekt, ett köp kan enbart genomföras om det finns minst en vara i korgen samt att formuläret är korrekt ifyllt. -->
     <div class="formContainer">
         <form [formGroup]="userForm" (ngSubmit)="saveUser()">
             <fieldset>
@@ -109,6 +111,10 @@
                     <div class="error" *ngIf="userForm.get('phoneNr')?.errors?.['minlength']">
                         Telefonnummer måste bestå utav 10 siffror.
                     </div>
+
+                    <div class="error" *ngIf="userForm.get('phoneNr')?.errors?.['pattern']">
+                        Telefonnummer måste bestå utav siffror.
+                    </div>
                 </div>
 
                 <input type="email" placeholder="epost" formControlName="email">
@@ -151,6 +157,8 @@
 
             </fieldset>
 
+            <!-- knapp som enbart kan tryckas på om allt ovan är korrekt och minst 1 vara finns i korgen. -->
+
             <button type="submit" [disabled]="!userForm.valid || checkoutItems.length < 1">Spara och genomför
                 köp</button>
 
@@ -158,6 +166,7 @@
 
         </form>
     </div>
+    <!-- Fält som enbart visas om allt gått som det ska och ett köp har genomförts så att användaren får feedback på genomfört köp. -->
     <div class="purchaseMade" *ngIf="madePurchase === true">Tack för ditt köp! <br> Din order kommer nu att behandlas
         och därefter skickas till dig. </div>
 

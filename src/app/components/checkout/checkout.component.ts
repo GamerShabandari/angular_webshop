@@ -36,7 +36,7 @@ export class CheckoutComponent implements OnInit {
     zip: new FormControl("", [Validators.required, Validators.minLength(5), Validators.maxLength(5), Validators.pattern("^[0-9]*$")]),
     city: new FormControl("", [Validators.required, Validators.minLength(3)]),
     country: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    phoneNr: new FormControl("", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+    phoneNr: new FormControl("", [Validators.required, Validators.minLength(10), Validators.maxLength(10),Validators.pattern("^[0-9]*$")]),
     email: new FormControl("", [Validators.required, Validators.email]),
     payment: new FormControl("", [Validators.required])
 
