@@ -33,4 +33,8 @@ describe('HomeComponent', () => {
     
     expect(component.products.length).toBe(2)
   })
+
+  it("should get categories", () => {
+    expect(component.categories.length).toBe(2)
+  })
 });

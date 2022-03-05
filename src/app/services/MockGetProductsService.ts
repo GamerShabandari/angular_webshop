@@ -4,13 +4,15 @@ import { IProductCategory } from "../models/IProductCategory";
 import { IGetProductsService } from "../models/IGetProductsService";
 import { IProduct } from "../models/IProduct";
 
-export class MockGetProductsService implements IGetProductsService{
+export class MockGetProductsService implements IGetProductsService {
     private products = new Subject<IProduct[]>();
     public products$: Observable<IProduct[]> = this.products.asObservable();
 
     private categories = new Subject<ICategory[]>();
     public categories$: Observable<ICategory[]> = this.categories.asObservable();
 
+
+    /////////////// två stycken testprodukter för att testa komponent ///////////
 
     product1: IProduct = {
 
@@ -23,8 +25,8 @@ export class MockGetProductsService implements IGetProductsService{
         added: new Date(2017, 11, 10),
         productCategory: [
             {
-                categoryId:72,
-                category:null
+                categoryId: 72,
+                category: null
             }
         ]
 
@@ -41,8 +43,8 @@ export class MockGetProductsService implements IGetProductsService{
         added: new Date(2017, 11, 10),
         productCategory: [
             {
-                categoryId:72,
-                category:null
+                categoryId: 72,
+                category: null
             }
         ]
 
@@ -50,16 +52,34 @@ export class MockGetProductsService implements IGetProductsService{
 
     private testProductsData: IProduct[] = [this.product1, this.product2]
 
-
-
     getProducts(): void {
         this.products.next(this.testProductsData)
     }
 
 
+    ////////////////////////////////////////////////////////////////////////
 
-    getCategoriesFromApi(): void {
-        
+
+    /////////////// två stycken testkategorier för att testa komponent ///////////
+
+    category1: ICategory = {
+        id:1,
+        name: "testCategory1"
     }
+
+    category2: ICategory = {
+        id:2,
+        name: "testCategory2"
+    }
+
+
+
+    private testCategoryData: ICategory[] = [this.category1, this.category2]
     
+    getCategoriesFromApi(): void {
+
+        this.categories.next(this.testCategoryData)
+
+    }
+
 }
