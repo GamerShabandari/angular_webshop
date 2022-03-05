@@ -4,11 +4,12 @@ import { catchError, first, Observable, Subject } from 'rxjs';
 import { ICategory } from '../models/ICategory';
 import { IOrder } from '../models/Order';
 import { IProduct } from '../models/IProduct';
+import { IGetProductsService } from '../models/IGetProductsService';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetproductsService {
+export class GetproductsService implements IGetProductsService{
 
   private amountOfItems = new Subject<number>();
   amountOfItems$ = this.amountOfItems.asObservable();

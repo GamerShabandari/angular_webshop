@@ -1,4 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GetproductsService } from 'src/app/services/getproducts.service';
+import { MockGetProductsService } from 'src/app/services/MockGetProductsService';
 
 import { HomeComponent } from './home.component';
 
@@ -8,7 +12,9 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      imports: [HttpClientModule, BrowserAnimationsModule],
+      providers: [{provide: GetproductsService, useClass: MockGetProductsService}]
     })
     .compileComponents();
   });
@@ -22,4 +28,9 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("should get data", () => {
+    
+    expect(component.products.length).toBe(2)
+  })
 });
