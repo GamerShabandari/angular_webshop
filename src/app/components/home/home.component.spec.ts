@@ -36,5 +36,6 @@ describe('HomeComponent', () => {
 
   it("should get categories", () => {
     expect(component.categories.length).toBe(2)
+    expect(component.categories[1].name).toBe("testCategory2")
   })
 });
