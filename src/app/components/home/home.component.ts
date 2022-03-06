@@ -15,7 +15,7 @@ import { GetproductsService } from 'src/app/services/getproducts.service';
           opacity: 0,
           transform: 'scale(0)'
         }),
-        animate('200ms', style({
+        animate('300ms ease-in', style({
           opacity: 1,
           transform: 'scale(1)'
         }))

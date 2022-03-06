@@ -1,6 +1,7 @@
 import { Observable } from "rxjs";
 import { ICategory } from "./ICategory";
 import { IProduct } from "./IProduct";
+import { IOrder } from "./Order";
 
 export interface IGetProductsService {
 
@@ -8,7 +9,11 @@ export interface IGetProductsService {
 
     categories$: Observable<ICategory[]>;
 
+    orders$: Observable<IOrder[]>;
+
     getProducts():void
 
     getCategoriesFromApi():void
+
+    getOrderToAdmin():void
 }
