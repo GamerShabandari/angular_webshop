@@ -7,25 +7,25 @@
 
             <!-- Nedan visar en mer detaljerad vy av produkten om använderan klickat på den i föregående sida. resultatet animeras in -->
 
-            <div [@itemAnim] *ngIf="p.id === productId" class="detailedProduct">
+            <div *ngIf="p.id === productId" class="detailedProduct animate__animated animate__fadeInDown">
 
-                <img src="{{p.imageUrl}}" alt="poster of {{p.name}}">
+                <img class="animate__animated animate__fadeInDown" src="{{p.imageUrl}}" alt="poster of {{p.name}}">
                 <div class="productInfo">
-                    <h2>{{p.name}} </h2>
-                    <h6><strong>artnr:</strong> {{p.id}}</h6>
+                    <h2 class="animate__animated animate__fadeIn animate__delay-1s">{{p.name}} </h2>
+                    <h6 class="animate__animated animate__fadeIn animate__delay-1s"><strong>artnr:</strong> {{p.id}}</h6>
 
                     <div class="decorationLine"></div>
 
-                    <h4><strong>Beskrivning:</strong> {{p.description}}</h4>
-                    <h5><strong>År:</strong> {{p.year}}</h5>
+                    <h4 class="animate__animated animate__fadeIn animate__delay-1s"><strong>Beskrivning:</strong> {{p.description}}</h4>
+                    <h5 class="animate__animated animate__fadeIn animate__delay-2s"><strong>År:</strong> {{p.year}}</h5>
 
                     <div class="decorationLine"></div>
 
-                    <h3><strong>Pris:</strong> {{p.price}}kr</h3>
+                    <h3 class="animate__animated animate__fadeIn animate__delay-2s"><strong>Pris:</strong> {{p.price}}kr</h3>
 
                     <div class="decorationLine"></div>
                     
-                    <button (click)="attItemToCheckout(p)">köp</button>
+                    <button class="animate__animated animate__fadeIn animate__delay-2s" (click)="attItemToCheckout(p)">köp</button>
 
                 </div>
 

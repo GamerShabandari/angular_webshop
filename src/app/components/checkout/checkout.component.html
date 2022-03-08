@@ -1,16 +1,16 @@
 <main>
 
     <!-- Visar alla produkter användaren har i sin varukorg (lagrat i localstorage), här kan man välja att radera enskillda produkter om man ångrat sig. resultaten animeras in -->
-    <div class="itemsContainer">
+    <div class="itemsContainer animate__animated animate__fadeInDown">
         <h2>Dina varor</h2>
-        <div [@itemAnim] class="item" *ngFor="let item of checkoutItems; let i = index"><img src="{{item.imageUrl}}" width="60px">
+        <div [@itemAnim] class="item animate__animated animate__fadeIn" *ngFor="let item of checkoutItems; let i = index"><img src="{{item.imageUrl}}" width="60px">
             <h4>{{item.name | slice:0:30}}</h4>
             <h5>{{item.price}}kr</h5> <button (click)="deleteItem(i)">X</button>
         </div>
     </div>
 
      <!-- Formulär som måste fyllas i korrekt, ett köp kan enbart genomföras om det finns minst en vara i korgen samt att formuläret är korrekt ifyllt. -->
-    <div class="formContainer">
+    <div class="formContainer animate__animated animate__fadeIn animate__delay-1s">
         <form [formGroup]="userForm" (ngSubmit)="saveUser()">
             <fieldset>
                 <legend>Fyll i dina uppgifter för att genomföra köp</legend>
