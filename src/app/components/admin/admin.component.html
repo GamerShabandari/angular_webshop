@@ -1,10 +1,10 @@
 <main>
     <h2>Lagda ordrar:</h2>
-    <div class="ordersContainer">
+    <div class="ordersContainer animate__animated animate__fadeInDown">
 
         <!-- Fält som visar alla ordrar i databasen, låter även användaren radera given order från databas. Resultaten visas i omvänt ordning så att senaste ordern är längst upp på sidan. Resultaten animeras in -->
 
-        <div [@itemAnim] class="order" *ngFor="let order of orders.reverse()">
+        <div class="order" *ngFor="let order of orders.reverse()">
 
             <h4 class="orderId">OrderId: {{order.id}}</h4>
 
