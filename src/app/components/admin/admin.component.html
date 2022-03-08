@@ -24,7 +24,7 @@
             <div class="decorationLine"></div>
             <h4> Betalningsmedel: {{order.paymentMethod}}</h4>
             <div class="decorationLine"></div>
-            <h3>Köpare: {{order.createdBy}}</h3>
+            <h3>Köpare: {{order.createdBy | titlecase}}</h3>
 
             <div class="decorationLine"></div>
             <div> Skapad: {{order.created | date: "yyyy-MM-dd"}}</div>
