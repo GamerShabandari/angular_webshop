@@ -252,4 +252,8 @@ main{
             justify-content: center;
             width: 60%;
         }
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
