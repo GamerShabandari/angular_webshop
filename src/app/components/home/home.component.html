@@ -1,7 +1,7 @@
 <main>
     <div>
         <!-- tar in categorier från API och visar dem på skärmen, om chosenCategory sätts till 0 visas alla produkter -->
-        <ul class="categoryContainer">
+        <ul class="categoryContainer animate__animated animate__fadeInDown">
             <li *ngFor="let category of categories">
                 <div class="category" (click)="chosenCategory = category.id; searchResult.length = 0">{{category.name}}
                 </div>
@@ -13,18 +13,18 @@
 
     <!-- låter användaren söka produkt baserat på titel, resultat-fält visas bara när man sökt och fått en träff. resultaten animeras in -->
 
-    <div class="searchInputContainer">
+    <div class="searchInputContainer animate__animated animate__fadeIn animate__delay-1s">
         <input type="text" placeholder="titel" #searchInput>
-        <button (click)="searchProduct(searchInput.value)">sök</button>
+        <button class="animate__animated animate__fadeIn animate__delay-1s" (click)="searchProduct(searchInput.value)">sök</button>
     </div>
 
     <div *ngIf="searchResult.length > 0" class="searchResultContainer">
         <div *ngFor="let result of searchResult">
-            <a [@itemAnim] class="product" routerLink="/details/{{result.id}}">
-                <img src="{{result.imageUrl}}" alt="poster of {{result.name}}" width="100px">
+            <a class="product animate__animated animate__fadeIn" routerLink="/details/{{result.id}}">
+                <img class="animate__animated animate__fadeInDown" src="{{result.imageUrl}}" alt="poster of {{result.name}}" width="100px">
                 <div class="productInfo">
-                    <h5>{{result.name | uppercase | slice:0:30}}</h5>
-                    <h4>{{result.price}}kr</h4>
+                    <h5 class="animate__animated animate__fadeInDown">{{result.name | uppercase | slice:0:30}}</h5>
+                    <h4 class="animate__animated animate__fadeInDown animate__delay-1s">{{result.price}}kr</h4>
 
                 </div>
             </a>
@@ -36,15 +36,15 @@
     <section class="productsSection">
 
         <ng-container *ngIf="chosenCategory === 0">
-            <div class="productContainer" *ngFor="let product of products">
-                <a [@itemAnim] class="product" routerLink="/details/{{product.id}}">
-                    <img src="{{product.imageUrl}}" alt="poster of {{product.name}}" width="100px">
+            <div class="productContainer animate__animated animate__fadeIn" *ngFor="let product of products">
+                <a class="product animate__animated animate__fadeIn animate__delay-0.3s" routerLink="/details/{{product.id}}">
+                    <img class="animate__animated animate__fadeInDown" src="{{product.imageUrl}}" alt="poster of {{product.name}}" width="100px">
                     <div class="productInfo">
-                        <h5>{{product.name | uppercase | slice:0:30}}</h5>
-                        <h4>{{product.price}}kr</h4>
+                        <h5 class="animate__animated animate__fadeInDown">{{product.name | uppercase | slice:0:30}}</h5>
+                        <h4 class="animate__animated animate__fadeInDown animate__delay-1s">{{product.price}}kr</h4>
                     </div>
                 </a>
-                <button [@itemAnim] (click)="attItemToCheckout(product)">köp</button>
+                <button class="animate__animated animate__fadeIn animate__delay-1s" (click)="attItemToCheckout(product)">köp</button>
             </div>
         </ng-container>
 
@@ -55,15 +55,15 @@
 
             <ng-container *ngFor="let product of products">
                 <ng-container  *ngFor="let categories of product.productCategory">
-                    <div class="productContainer" *ngIf="categories.categoryId === chosenCategory">
-                        <a [@itemAnim] class="product" routerLink="/details/{{product.id}}">
-                            <img src="{{product.imageUrl}}" alt="poster of {{product.name}}" width="100px">
+                    <div class="productContainer animate__animated animate__fadeIn" *ngIf="categories.categoryId === chosenCategory">
+                        <a class="product animate__animated animate__fadeIn animate__delay-0.3s" routerLink="/details/{{product.id}}">
+                            <img class="animate__animated animate__fadeInDown" src="{{product.imageUrl}}" alt="poster of {{product.name}}" width="100px">
                             <div class="productInfo">
-                                <h5>{{product.name | uppercase | slice:0:30}}</h5>
-                                <h4>{{product.price}}kr</h4>
+                                <h5 class="animate__animated animate__fadeInDown">{{product.name | uppercase | slice:0:30}}</h5>
+                                <h4 class="animate__animated animate__fadeInDown animate__delay-1s">{{product.price}}kr</h4>
                             </div>
                         </a>
-                        <button [@itemAnim] (click)="attItemToCheckout(product)">köp</button>
+                        <button class="animate__animated animate__fadeIn animate__delay-1s" (click)="attItemToCheckout(product)">köp</button>
                     </div>
                 </ng-container>
 
