@@ -1,4 +1,3 @@
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from 'src/app/models/ICategory';
 import { IProduct } from 'src/app/models/IProduct';
@@ -8,20 +7,6 @@ import { GetproductsService } from 'src/app/services/getproducts.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  animations: [
-    trigger("itemAnim",[
-      transition("void => *", [
-        style({
-          opacity: 0,
-          transform: 'scale(0)'
-        }),
-        animate('300ms ease-in', style({
-          opacity: 1,
-          transform: 'scale(1)'
-        }))
-      ])
-    ])
-  ]
 })
 export class HomeComponent implements OnInit {
 

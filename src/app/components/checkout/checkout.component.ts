@@ -3,29 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IOrder } from 'src/app/models/Order';
 import { IProduct } from 'src/app/models/IProduct';
 import { IUser } from 'src/app/models/User';
-import { OrderRow } from 'src/app/models/OrderRow';
 import { GetproductsService } from 'src/app/services/getproducts.service';
-import { animate, style, transition, trigger } from '@angular/animations';
+
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.scss'],
-
-  animations: [
-    trigger("itemAnim",[
-      transition("void => *", [
-        style({
-          opacity: 0,
-          transform: 'scale(0)'
-        }),
-        animate('200ms', style({
-          opacity: 1,
-          transform: 'scale(1)'
-        }))
-      ])
-    ])
-  ]
+  styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
 
