@@ -142,7 +142,9 @@
         </form>
     </div>
     <!-- Fält som enbart visas om allt gått som det ska och ett köp har genomförts så att användaren får feedback på genomfört köp. -->
-    <div class="purchaseMade" *ngIf="madePurchase === true">Tack för ditt köp! <br> Din order kommer nu att behandlas
+    <div class="purchaseMade animate__animated animate__fadeIn" *ngIf="madePurchase === true">Tack för ditt köp! <br> Din order kommer nu att behandlas
         och därefter skickas till dig. </div>
+
+       
 
 </main>
