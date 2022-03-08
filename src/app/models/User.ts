@@ -4,18 +4,16 @@ export class IUser {
     street:string;
     city:string;
     country:string;
-    phoneNr:string;
     email:string;
     payment:string;
 
-    constructor(firstname:string, lastname:string, street:string, city:string, country:string, phoneNr:string, email:string, payment:string){
+    constructor(firstname:string, lastname:string, street:string, city:string, country:string, email:string, payment:string){
 
         this.firstname = firstname;
         this.lastname = lastname;
         this.street = street;
         this.city = city;
         this.country = country;
-        this.phoneNr = phoneNr;
         this.email = email
         this.payment = payment
         

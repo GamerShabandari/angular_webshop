@@ -79,19 +79,6 @@
                     </div>
                 </div>
 
-                <input type="number" placeholder="mobilnummmer" formControlName="phoneNr">
-
-                <div
-                    *ngIf="userForm.get('phoneNr')?.touched && userForm.get('phoneNr')?.dirty">
-                    <div class="error" *ngIf="userForm.get('phoneNr')?.errors?.['required']">
-                        Detta fält är obligatoriskt och måste innehålla ett mobilnummer.
-                    </div>
-
-                    <div class="error" *ngIf="userForm.get('phoneNr')?.errors?.['pattern']">
-                        Telefonnummer måste bestå utav 10 siffror.
-                    </div>
-                </div>
-
                 <input type="email" placeholder="epost" formControlName="email">
 
                 <div
