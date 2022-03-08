@@ -30,7 +30,7 @@ main{
 }
 
 .item{
-    border: 1px solid darkcyan;
+   
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -47,6 +47,10 @@ main{
 
     &:hover{
         scale: 1.2;
+    }
+
+    img{
+        border-radius: 5px;
     }
 
     h4{
