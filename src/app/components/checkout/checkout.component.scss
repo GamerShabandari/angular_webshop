@@ -21,7 +21,7 @@ main{
 
     h2{
        
-        color: darkcyan;
+        color: #dc5253;
         font-weight: lighter;
         font-size: 1.5rem;
         letter-spacing: 1px;
@@ -58,7 +58,7 @@ main{
     }
 
     h4{
-        color: darkcyan;
+        color: #393731;
         font-weight: 100;
         text-align: center;
         overflow: hidden;
@@ -66,16 +66,16 @@ main{
     }
 
     h5{
-        color: darkcyan;
-        font-weight: 100;
+        color: #393731;
+        font-weight: bold;
         text-align: center;
     }
 
     button{
        
-        background-color: darkcyan;
-        border: 1px solid whitesmoke;
-        color: whitesmoke;
+        background-color: #dc5253;
+        border: 1px solid white;
+        color: white;
         border-radius: 5px;
         transition:all;
         transition-duration: 0.3s;
@@ -83,8 +83,8 @@ main{
 
         &:hover{
             background-color: white;
-            color: darkcyan;
-            border: 1px solid darkcyan;
+            color: #dc5253;
+            border: 1px solid #dc5253;
         }
     }
 
@@ -105,7 +105,7 @@ main{
 
         legend{
         margin-bottom: 20px;
-        color: darkcyan;
+        color: #dc5253;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1.5rem;
         text-align: center;
@@ -114,24 +114,24 @@ main{
         input{
             margin: 5px;
             font-family: Arial, Helvetica, sans-serif;
-            color: darkcyan;
+            color: #393731;
             font-size: 1rem;
             padding: 10px;
-            border: 1px solid darkcyan;
+            border: 1px solid #dc5253;
             border-radius: 5px;
             width: 40rem;
 
             &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                color: rgba(0, 139, 139, 0.3);
+                color: #39373162;
                 opacity: 1; /* Firefox */
               }
               
               &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-                color: rgba(0, 139, 139, 0.3);
+                color: #39373162;
               }
               
               &::-ms-input-placeholder { /* Microsoft Edge */
-                color: rgba(0, 139, 139, 0.3);
+                color: #39373162;
               }
 
             &::-webkit-inner-spin-button {
@@ -144,7 +144,7 @@ main{
         }
 
         h4{
-            color: darkcyan;
+            color: #dc5253;
             font-size: 1rem;
             font-family: Arial, Helvetica, sans-serif;
             font-weight: 100;
@@ -154,10 +154,10 @@ main{
         select {
             margin: 5px;
             font-family: Arial, Helvetica, sans-serif;
-            color: darkcyan;
+            color: #dc5253;
             font-size: 1rem;
             padding: 10px;
-            border: 1px solid darkcyan;
+            border: 1px solid #dc5253;
             border-radius: 5px;
             width: 20rem;
         }
@@ -172,9 +172,9 @@ main{
             width: fit-content;
             height: 50px;
             align-self: center;
-            background-color: darkcyan;
-            border: 1px solid whitesmoke;
-            color: whitesmoke;
+            background-color: #dc5253;
+            border: 1px solid white;
+            color: white;
             padding: 10px;
             border-radius: 5px;
             transition:all;
@@ -183,14 +183,14 @@ main{
 
             &:hover{
                 background-color: white;
-                color: darkcyan;
-                border: 1px solid darkcyan;
+                color: #dc5253;
+                border: 1px solid #dc5253;
             }
 
             &:disabled{
-                background-color: rgba(0, 139, 139, 0.205);
-                border: 1px solid whitesmoke;
-                color: whitesmoke;
+                background-color: #dc52525d;
+                border: 1px solid white;
+                color: white;
 }
         }
     }
@@ -206,8 +206,8 @@ main{
 }
 
 .error{
-    background-color:darkcyan;
-    color: whitesmoke;
+    background-color:#dc5253;
+    color: white;
     font-size: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -216,7 +216,7 @@ main{
 
 .purchaseMade{
     
-    background-color: darkcyan;
+    background-color: #dc5253;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;

@@ -14,7 +14,7 @@ header{
         left: 2rem;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 2.6rem;
-        color: darkcyan;
+        color: #dc5253;
         letter-spacing: 5px;
         text-decoration: none;
     }
@@ -37,12 +37,12 @@ ul{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
     font-size: 1rem;
-    color: darkcyan;
+    color: #dc5253;
     background-color: whitesmoke;
     border-radius: 5px;
 
     &:visited {
-        color: darkcyan;
+        color: #dc5253;
     }
 
     &:hover{
@@ -58,7 +58,7 @@ ul{
 }
 
 .basketItemBadge{
-    background-color: black;
+    background-color: #393731;
     position: absolute;
     z-index: 99;
     top: -20px;

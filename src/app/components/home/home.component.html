@@ -18,7 +18,7 @@
         <button class="animate__animated animate__fadeIn animate__delay-1s" (click)="searchProduct(searchInput.value)">sök</button>
     </div>
 
-    <div *ngIf="searchResult.length > 0" class="searchResultContainer">
+    <div *ngIf="searchResult.length > 0" class="searchResultContainer animate__animated animate__fadeIn">
         <div class="productContainer animate__animated animate__fadeIn" *ngFor="let result of searchResult">
             <a class="product animate__animated animate__fadeIn" routerLink="/details/{{result.id}}">
                 <img class="animate__animated animate__fadeInDown" src="{{result.imageUrl}}" alt="poster of {{result.name}}" width="100px">
