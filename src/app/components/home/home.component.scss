@@ -75,6 +75,10 @@ main{
         &[type=number] {
             -moz-appearance: textfield;
           }
+
+          &:focus{
+            outline: none;
+        }
     }
 
     button{
@@ -116,6 +120,8 @@ main{
     gap: 20px;
     background-color:rgba(0, 139, 139, 0.4);
     width: 100%;
+
+    
 
     .product{
 
@@ -180,10 +186,10 @@ main{
             align-items: center;
             font-size: 1rem;
             font-weight: 300;
-            width: 100%;
+            width: fit-content;
             height: 2rem;
             align-self: center;
-            background-color: white;
+            background-color: transparent;
             color: darkcyan;
             padding: 10px;
             border: none;
@@ -204,11 +210,19 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+
+    &:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        scale: 1.2;
+    }
 }
 
 .product{
 
-        background-color: white;
+        background-color: transparent;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -263,6 +277,6 @@ main{
         }
 
         &:hover {
-            transform: scale(1.1);
+            //transform: scale(1.1);
         }
     }
