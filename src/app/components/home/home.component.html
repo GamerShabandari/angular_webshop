@@ -15,55 +15,67 @@
 
     <div class="searchInputContainer animate__animated animate__fadeIn animate__delay-1s">
         <input type="text" placeholder="titel" #searchInput>
-        <button class="animate__animated animate__fadeIn animate__delay-1s" (click)="searchProduct(searchInput.value)">sök</button>
+        <button class="animate__animated animate__fadeIn animate__delay-1s"
+            (click)="searchProduct(searchInput.value)">sök</button>
     </div>
 
     <div *ngIf="searchResult.length > 0" class="searchResultContainer animate__animated animate__fadeIn">
         <div class="productContainer animate__animated animate__fadeIn" *ngFor="let result of searchResult">
             <a class="product animate__animated animate__fadeIn" routerLink="/details/{{result.id}}">
-                <img class="animate__animated animate__fadeInDown" src="{{result.imageUrl}}" alt="poster of {{result.name}}" width="100px">
+                <img class="animate__animated animate__fadeInDown" src="{{result.imageUrl}}"
+                    alt="poster of {{result.name}}" width="100px">
                 <div class="productInfo">
                     <h5 class="animate__animated animate__fadeInDown">{{result.name | uppercase | slice:0:30}}</h5>
                     <h4 class="animate__animated animate__fadeInDown animate__delay-1s">{{result.price}}kr</h4>
-
                 </div>
             </a>
+            <button class="animate__animated animate__fadeIn animate__delay-1s"
+                (click)="attItemToCheckout(result)">köp</button>
         </div>
     </div>
 
-     <!-- Nedan visar alla produkter på skärmen ( enbart när chosencategory är = 0). Varje produkt är en länk för att få mer info och har även en knapp för direkt köp. resultaten animeras in -->
+    <!-- Nedan visar alla produkter på skärmen ( enbart när chosencategory är = 0). Varje produkt är en länk för att få mer info och har även en knapp för direkt köp. resultaten animeras in -->
 
     <section class="productsSection">
 
         <ng-container *ngIf="chosenCategory === 0">
             <div class="productContainer animate__animated animate__fadeIn" *ngFor="let product of products">
-                <a class="product animate__animated animate__fadeIn animate__delay-0.3s" routerLink="/details/{{product.id}}">
-                    <img class="animate__animated animate__fadeInDown" src="{{product.imageUrl}}" alt="poster of {{product.name}}" width="100px">
+                <a class="product animate__animated animate__fadeIn animate__delay-0.3s"
+                    routerLink="/details/{{product.id}}">
+                    <img class="animate__animated animate__fadeInDown" src="{{product.imageUrl}}"
+                        alt="poster of {{product.name}}" width="100px">
                     <div class="productInfo">
                         <h5 class="animate__animated animate__fadeInDown">{{product.name | uppercase | slice:0:30}}</h5>
                         <h4 class="animate__animated animate__fadeInDown animate__delay-1s">{{product.price}}kr</h4>
                     </div>
                 </a>
-                <button class="animate__animated animate__fadeIn animate__delay-1s" (click)="attItemToCheckout(product)">köp</button>
+                <button class="animate__animated animate__fadeIn animate__delay-1s"
+                    (click)="attItemToCheckout(product)">köp</button>
             </div>
         </ng-container>
 
-    
-    <!-- Nedan visas när användaren valt en kategori av produkter ( enbart när chosencategory är större än 0). Varje produkt är en länk för att få mer info och har även en knapp för direkt köp. resultaten animeras in -->
+
+        <!-- Nedan visas när användaren valt en kategori av produkter ( enbart när chosencategory är större än 0). Varje produkt är en länk för att få mer info och har även en knapp för direkt köp. resultaten animeras in -->
 
         <ng-container *ngIf="chosenCategory > 0">
 
             <ng-container *ngFor="let product of products">
-                <ng-container  *ngFor="let categories of product.productCategory">
-                    <div class="productContainer animate__animated animate__fadeIn" *ngIf="categories.categoryId === chosenCategory">
-                        <a class="product animate__animated animate__fadeIn animate__delay-0.3s" routerLink="/details/{{product.id}}">
-                            <img class="animate__animated animate__fadeInDown" src="{{product.imageUrl}}" alt="poster of {{product.name}}" width="100px">
+                <ng-container *ngFor="let categories of product.productCategory">
+                    <div class="productContainer animate__animated animate__fadeIn"
+                        *ngIf="categories.categoryId === chosenCategory">
+                        <a class="product animate__animated animate__fadeIn animate__delay-0.3s"
+                            routerLink="/details/{{product.id}}">
+                            <img class="animate__animated animate__fadeInDown" src="{{product.imageUrl}}"
+                                alt="poster of {{product.name}}" width="100px">
                             <div class="productInfo">
-                                <h5 class="animate__animated animate__fadeInDown">{{product.name | uppercase | slice:0:30}}</h5>
-                                <h4 class="animate__animated animate__fadeInDown animate__delay-1s">{{product.price}}kr</h4>
+                                <h5 class="animate__animated animate__fadeInDown">{{product.name | uppercase |
+                                    slice:0:30}}</h5>
+                                <h4 class="animate__animated animate__fadeInDown animate__delay-1s">{{product.price}}kr
+                                </h4>
                             </div>
                         </a>
-                        <button class="animate__animated animate__fadeIn animate__delay-1s" (click)="attItemToCheckout(product)">köp</button>
+                        <button class="animate__animated animate__fadeIn animate__delay-1s"
+                            (click)="attItemToCheckout(product)">köp</button>
                     </div>
                 </ng-container>
 

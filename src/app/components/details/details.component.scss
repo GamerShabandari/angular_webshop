@@ -30,6 +30,11 @@ main{
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+
+    &:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
     
     img{
         width: 40%;
@@ -59,7 +64,7 @@ main{
         h6{
             font-weight: 100;
             font-style: italic;
-            color: #dc5253;
+            color: #393731;
             font-size: 0.7rem;
             margin: 5px;
             width: 50%;
