@@ -13,10 +13,16 @@ header{
         position: absolute;
         left: 2rem;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 2.6rem;
-        color: #dc5253;
-        letter-spacing: 5px;
+        font-size: 2rem;
+        color: whitesmoke;
+        letter-spacing: 8px;
         text-decoration: none;
+
+        .letterR{
+            color: #393731;
+            font-size: 3rem;
+           
+        }
     }
 }
 ul{
@@ -37,16 +43,17 @@ ul{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
     font-size: 1rem;
-    color: #dc5253;
-    background-color: whitesmoke;
+    color: whitesmoke;
+    background-color: #dc5253;
     border-radius: 5px;
 
     &:visited {
-        color: #dc5253;
+        color: whitesmoke;
     }
 
     &:hover{
         text-decoration: underline;
+        
     }
 }
 
@@ -54,7 +61,9 @@ ul{
    
     border-radius: 5px;
     text-decoration: underline; 
-    font-weight: bold;   
+    font-size: 1.1rem;
+    font-weight: bold;  
+    
 }
 
 .basketItemBadge{

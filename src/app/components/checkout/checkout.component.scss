@@ -21,7 +21,7 @@ main{
 
     h2{
        
-        color: #dc5253;
+        color: whitesmoke;
         font-weight: lighter;
         font-size: 1.5rem;
         letter-spacing: 1px;
@@ -31,7 +31,7 @@ main{
 
 .item{
    
-    background-color: white;
+    background-color: whitesmoke;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -74,17 +74,16 @@ main{
     button{
        
         background-color: #dc5253;
-        border: 1px solid white;
-        color: white;
+        border: none;
+        color: whitesmoke;
         border-radius: 5px;
         transition:all;
         transition-duration: 0.3s;
         cursor: pointer;
 
         &:hover{
-            background-color: white;
-            color: #dc5253;
-            border: 1px solid #dc5253;
+            background-color: #393731;
+            color: whitesmoke;
         }
     }
 
@@ -105,7 +104,7 @@ main{
 
         legend{
         margin-bottom: 20px;
-        color: #dc5253;
+        color: whitesmoke;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1.5rem;
         text-align: center;
@@ -144,7 +143,7 @@ main{
         }
 
         h4{
-            color: #dc5253;
+            color: whitesmoke;
             font-size: 1rem;
             font-family: Arial, Helvetica, sans-serif;
             font-weight: 100;
@@ -154,7 +153,7 @@ main{
         select {
             margin: 5px;
             font-family: Arial, Helvetica, sans-serif;
-            color: #dc5253;
+            color: #393731;
             font-size: 1rem;
             padding: 10px;
             border: 1px solid #dc5253;
@@ -172,9 +171,9 @@ main{
             width: fit-content;
             height: 50px;
             align-self: center;
-            background-color: #dc5253;
-            border: 1px solid white;
-            color: white;
+            background-color: #393731;
+            border: none;
+            color: whitesmoke;
             padding: 10px;
             border-radius: 5px;
             transition:all;
@@ -182,15 +181,15 @@ main{
             cursor: pointer;
 
             &:hover{
-                background-color: white;
-                color: #dc5253;
-                border: 1px solid #dc5253;
+                background-color: whitesmoke;
+                color: #393731;
+                
             }
 
             &:disabled{
-                background-color: #dc52525d;
-                border: 1px solid white;
-                color: white;
+                background-color: #39373175;
+                border: none;
+              
 }
         }
     }
@@ -206,18 +205,19 @@ main{
 }
 
 .error{
-    background-color:#dc5253;
-    color: white;
+    background-color:#393731;
+    color: whitesmoke;
     font-size: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     padding: 5px;
+    border-radius: 5px;
 }
 
 .purchaseMade{
     
-    background-color: #dc5253;
-    color: white;
+    background-color: #393731;
+    color: whitesmoke;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     display: flex;

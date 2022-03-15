@@ -25,7 +25,7 @@ main{
     height: fit-content;
     width: fit-content;
     text-align: center;
-    background-color: white;
+    background-color: whitesmoke;
     padding: 40px;
     border-radius: 5px;
     overflow: hidden;
@@ -105,19 +105,19 @@ main{
             width: fit-content;
             height: 2rem;
             align-self: center;
-            background-color: #dc5253;
-            color: white;
+            background-color: whitesmoke;
+            color: #dc5253;
             padding: 10px;
-            border: 1px solid white;
+            border: 1px solid whitesmoke;
             border-radius: 5px;
             transition:all;
             transition-duration: 0.3s;
             cursor: pointer;
 
             &:hover{
-                background-color: white;
-                color: #dc5253;
-                border: 1px solid #dc5253;
+                background-color: #dc5253;
+                color: whitesmoke;
+
             }
 
             
@@ -142,18 +142,18 @@ main{
     width: fit-content;
     height: 1rem;
     align-self: center;
-    background-color: #dc5253;
-    color: white;
+    background-color: #393731;
+    color: whitesmoke;
     padding: 10px;
     border-radius: 5px;
     transition:all;
     transition-duration: 0.3s;
-    border: 1px solid white;
+    border: none;
     text-decoration: none;
 
     &:hover{
-        background-color: white;
-        color: #dc5253;
-        border: 1px solid #dc5253;
+        background-color: whitesmoke;
+        color: #393731;
+        
     }
 }
