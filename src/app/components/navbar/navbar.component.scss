@@ -4,6 +4,7 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     position: relative;
     height: 10vh;
@@ -25,6 +26,28 @@ header{
         }
     }
 }
+
+@media screen and (max-width: 1000px) {
+    header {
+        .navbarLogo{
+            font-size: 1rem;
+            .letterR{
+                font-size: 2rem;
+               
+            }
+        }
+        ul{
+           gap: 10px;
+        }
+        .navbarLink{
+            font-size: 0.8rem;
+        }
+
+    }
+    
+    
+}
+
 ul{
     display: flex;
     flex-direction: row;
