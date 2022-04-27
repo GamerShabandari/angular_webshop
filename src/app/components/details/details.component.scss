@@ -159,6 +159,13 @@ main{
 }
 
 @media screen and (max-width: 1000px) {
+
+    .decorationLine{
+        width: 80%;
+        height: 1px;
+        background-color: #dc5253;
+        margin: 15px;
+    }
     .detailedProduct{
         display: flex;
         flex-direction: column;
@@ -207,7 +214,7 @@ main{
                 font-weight: 100;
                 font-style: italic;
                 color: #393731;
-                font-size: 0.3rem;
+                font-size: 1rem;
                 margin: 5px;
                 width: 50%;
             }
@@ -218,7 +225,7 @@ main{
                 color: #393731;
                 line-height: 43px;
                 margin: 15px;
-                width: 80%;
+                max-width: 100%;
             }
 
             h5{

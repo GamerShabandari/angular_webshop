@@ -137,3 +137,10 @@ main{
     background-color: #dc5253;
     margin: 0px;
 }
+
+@media screen and (max-width: 1000px) {
+    .order{
+        width: 80%;
+    }
+    
+}
