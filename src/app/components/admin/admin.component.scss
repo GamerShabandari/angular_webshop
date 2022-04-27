@@ -141,6 +141,17 @@ main{
 @media screen and (max-width: 1000px) {
     .order{
         width: 80%;
+
+        button{
+           
+            background-color: #dc5253;
+            color: whitesmoke;
+           
+        }
+    }
+
+    .decorationLine{
+        width: 80%;
     }
     
 }
